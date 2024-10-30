@@ -20,6 +20,11 @@
     </script>
     <!-- Custom Font -->
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
@@ -180,29 +185,89 @@
             <div class="space-y-12">
                 <!-- Project 1 -->
                 <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <h3 class="text-2xl font-semibold mb-2">Gucci & Saint Laurent - Leather Stocks Commerce Platform</h3>
-                    <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> TypeScript, Node.js</p>
-                    <p class="leading-relaxed text-lg">
-                        Developed a private commerce platform for managing leather stock transactions between Gucci and Saint Laurent. Implemented secure authentication, inventory management, and real-time data synchronization.
-                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <!-- Project Description -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Gucci & Saint Laurent - Leather Stocks Commerce Platform</h3>
+                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> TypeScript, Node.js</p>
+                            <p class="leading-relaxed text-lg">
+                                Developed a private commerce platform for managing leather stock transactions between Gucci and Saint Laurent. Implemented secure authentication, inventory management, and real-time data synchronization.
+                            </p>
+                        </div>
+                        <!-- Swiper Slider -->
+                        <div>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="p-1.png" alt="Project Image 1" class="w-full h-auto rounded-md">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="p-2.png" alt="Project Image 2" class="w-full h-auto rounded-md">
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <h3 class="text-2xl font-semibold mb-2">SERMIXER - Quotation App</h3>
-                    <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React, TypeScript, SQL Server</p>
-                    <p class="leading-relaxed text-lg">
-                        Built a frontend application for generating complex quotations. Developed custom SQL Server backend for data management. Implemented features like dynamic pricing, PDF generation, and user authentication.
-                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <!-- Project Description -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">SERMIXER - Quotation App</h3>
+                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React, TypeScript, SQL Server</p>
+                            <p class="leading-relaxed text-lg">
+                                Built a frontend application for generating complex quotations. Developed custom SQL Server backend for data management. Implemented features like dynamic pricing, PDF generation, and user authentication.
+                            </p>
+                        </div>
+                        <!-- Swiper Slider -->
+                        <div>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="p-1.png" alt="Project Image 1" class="w-full h-auto rounded-md">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="p-2.png" alt="Project Image 2" class="w-full h-auto rounded-md">
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <h3 class="text-2xl font-semibold mb-2">NOWTV - Vodafone's App for TVs</h3>
-                    <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React</p>
-                    <p class="leading-relaxed text-lg">
-                        Developed and maintained NOWTV application software running on console platforms, gaining experience in video streaming techniques and cross-platform development.
-                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <!-- Project Description -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">NOWTV - Vodafone's App for TVs</h3>
+                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React</p>
+                            <p class="leading-relaxed text-lg">
+                                Developed and maintained NOWTV application software running on console platforms, gaining experience in video streaming techniques and cross-platform development.
+                            </p>
+                        </div>
+                        <!-- Swiper Slider -->
+                        <div>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="p-1.png" alt="Project Image 1" class="w-full h-auto rounded-md">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="p-2.png" alt="Project Image 2" class="w-full h-auto rounded-md">
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -326,6 +391,8 @@
         </div>
     </footer>
 
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Theme Toggle Script -->
     <script>
         var themeToggleBtn = document.getElementById('theme-toggle');
@@ -362,6 +429,22 @@
                     localStorage.setItem('color-theme', 'dark');
                 }
             }
+        });
+
+        // Initialize Swiper sliders
+        var swiperContainers = document.querySelectorAll('.swiper-container');
+        swiperContainers.forEach(function(container) {
+            new Swiper(container, {
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
         });
     </script>
 </body>
