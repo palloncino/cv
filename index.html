@@ -30,6 +30,11 @@
             font-family: 'Helvetica', sans-serif;
         }
 
+        /* Add this new style for Swiper containers */
+        .swiper-container {
+            overflow: hidden;
+        }
+
         /* Print Styles */
         @media print {
             @page {
@@ -45,7 +50,7 @@
 
             .container {
                 width: 100%;
-                max-width: 100%;
+                max-width: 800px!important;
                 margin: 0;
                 padding: 0;
             }
@@ -433,12 +438,12 @@
 
         // Initialize Swiper sliders
         var swiperContainers = document.querySelectorAll('.swiper-container');
-        swiperContainers.forEach(function(container) {
+        swiperContainers.forEach(function(container, index) {
             new Swiper(container, {
                 loop: true,
                 autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false,
+                    delay: 4000,
+                    disableOnInteraction: true,
                 },
                 pagination: {
                     el: '.swiper-pagination',
