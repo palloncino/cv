@@ -117,7 +117,7 @@
         <img class="w-48 h-48 rounded-full object-cover border-4 border-teal-500 shadow-lg dark:border-teal-400" src="./me.jpeg" alt="Antonio Guiotto">
         <h1 class="text-5xl font-extrabold mt-6">Antonio Guiotto</h1>
         <p class="text-xl mt-2 text-teal-600 dark:text-teal-400">Experienced Web Developer</p>
-        <p class="text-lg mt-1">barcelona | Date of Birth: 20/03/1995</p>
+        <p class="text-lg mt-1">Barcelona | Date of Birth: 20/03/1995</p>
         <div class="mt-4 flex flex-wrap justify-center space-x-6">
             <a href="mailto:powerhydratoni@gmail.com" class="hover:text-teal-600 dark:hover:text-teal-400">Email</a>
             <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-teal-600 dark:hover:text-teal-400">LinkedIn</a>
@@ -188,99 +188,21 @@
             </div>
         </section>
 
-        <!-- Notable Projects -->
+        <!-- Notable Projects with Pagination -->
         <section id="projects" class="container mx-auto px-4 mb-12">
             <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Notable Projects</h2>
-            <div class="space-y-12">
-                <!-- Project 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project Description -->
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">Gucci & Saint Laurent - Leather Stocks Commerce Platform</h3>
-                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> TypeScript, Node.js</p>
-                            <p class="leading-relaxed text-lg">
-                                Developed a private commerce platform for managing leather stock transactions between Gucci and Saint Laurent. Implemented secure authentication, inventory management, and real-time data synchronization.
-                            </p>
-                        </div>
-                        <!-- Swiper Slider -->
-                        <div>
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="./media/sermixer-1.png" alt="Project Image 1" class="w-full h-auto rounded-md">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="./media/sermixer-2.png" alt="Project Image 2" class="w-full h-auto rounded-md">
-                                    </div>
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project Description -->
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">SERMIXER - Quotation App</h3>
-                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React, TypeScript, SQL Server</p>
-                            <p class="leading-relaxed text-lg">
-                                Built a frontend application for generating complex quotations. Developed custom SQL Server backend for data management. Implemented features like dynamic pricing, PDF generation, and user authentication.
-                            </p>
-                        </div>
-                        <!-- Swiper Slider -->
-                        <div>
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="./media/sermixer-1.png" alt="Project Image 1" class="w-full h-auto rounded-md">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="./media/sermixer-2.png" alt="Project Image 2" class="w-full h-auto rounded-md">
-                                    </div>
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project Description -->
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">NOWTV - Vodafone's App for TVs</h3>
-                            <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> React</p>
-                            <p class="leading-relaxed text-lg">
-                                Developed and maintained NOWTV application software running on console platforms, gaining experience in video streaming techniques and cross-platform development.
-                            </p>
-                        </div>
-                        <!-- Swiper Slider -->
-                        <div>
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="./media/nowtv-1.jpg" alt="Project Image 1" class="w-full h-auto rounded-md">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="./media/nowtv-2.webp" alt="Project Image 2" class="w-full h-auto rounded-md">
-                                    </div>
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="projects-container" class="space-y-12">
+                <!-- Projects will be injected here by JavaScript -->
+            </div>
+            <!-- Pagination Controls -->
+            <div class="flex justify-center mt-8">
+                <nav id="pagination-controls" class="inline-flex space-x-2">
+                    <!-- Pagination buttons will be injected here by JavaScript -->
+                </nav>
             </div>
         </section>
 
+        <!-- The rest of your content remains the same -->
         <!-- Professional Experience -->
         <section id="experience" class="container mx-auto px-4 mb-12">
             <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Professional Experience</h2>
@@ -441,20 +363,179 @@
         });
 
         // Initialize Swiper sliders
-        var swiperContainers = document.querySelectorAll('.swiper-container');
-        swiperContainers.forEach(function(container, index) {
-            new Swiper(container, {
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: true,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
+        function initializeSwipers() {
+            var swiperContainers = document.querySelectorAll('.swiper-container');
+            swiperContainers.forEach(function(container) {
+                new Swiper(container, {
+                    loop: true,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: true,
+                    },
+                    pagination: {
+                        el: container.querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                });
             });
-        });
+        }
+
+        // Pagination Variables
+        var projectsPerPage = 3;
+        var currentPage = 1;
+        var projectsData = [];
+
+        // Generate dummy projects data by repeating the same three projects
+        function generateProjectsData() {
+            var baseProjects = [
+            {
+                    title: "GUCCI - Leather Stocks Commerce Platform",
+                    technologies: "TypeScript, Node.js",
+                    description: "Developed a private commerce platform for managing leather stock transactions between Gucci and Saint Laurent. Implemented secure authentication, inventory management, and real-time data synchronization.",
+                    images: ["./media/na.jpg"]
+                },
+                {
+                    title: "SERMIXER - Quotation App",
+                    technologies: "React, TypeScript, SQL Server",
+                    description: "Built a frontend application for generating complex quotations. Developed custom SQL Server backend for data management. Implemented features like dynamic pricing, PDF generation, and user authentication.",
+                    images: ["./media/sermixer-1.png", "./media/sermixer-2.png"]
+                },
+                {
+                    title: "SATIFILTRI - IoT devices managment",
+                    technologies: "Laravel, MariaDB, MQTT hosted on Linux VPS",
+                    description: "Developed a Laravel-based dashboard app for IoT device monitoring and management. Integrated an MQTT client to communicate with devices, supporting secure TLS connections and real-time data updates. Built out user roles, logging, and queue-driven background processing for reliability. Key features include interactive device status visualization, alert management, and direct publish/subscribe controls for device registers.",
+                    images: ["./media/na.jpg"]
+                },
+                {
+                    title: "TERMOPAROTTO",
+                    technologies: "React, Tailwind, MongoDB",
+                    description: "",
+                    images: ["./media/na.jpg"]
+                },
+                {
+                    title: "OVALX - Trading platform, Account Managment Panel App",
+                    technologies: "React",
+                    description: "",
+                    images: ["./media/na.jpg"]
+                },
+                {
+                    title: "EDGE - Fully customized and animated website",
+                    technologies: "WordPress",
+                    description: "",
+                    images: ["./media/na.jpg"]
+                },
+                {
+                    title: "NOWTV - Vodafone's App for TVs",
+                    technologies: "React",
+                    description: "Developed and maintained NOWTV application software running on console platforms, gaining experience in video streaming techniques and cross-platform development.",
+                    images: ["./media/nowtv-1.jpg", "./media/nowtv-2.webp"]
+                },
+            ];
+            // Repeat the base projects to create multiple pages
+            for (var i = 0; i < baseProjects.length; i++) { // Adjust the number to create more pages
+                projectsData.push(baseProjects[i % baseProjects.length]);
+            }
+        }
+
+        // Render projects for the current page
+        function renderProjects() {
+            var projectsContainer = document.getElementById('projects-container');
+            projectsContainer.innerHTML = '';
+            var startIndex = (currentPage - 1) * projectsPerPage;
+            var endIndex = startIndex + projectsPerPage;
+            var currentProjects = projectsData.slice(startIndex, endIndex);
+
+            currentProjects.forEach(function(project) {
+                var projectHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <!-- Project Description -->
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">${project.title}</h3>
+                                <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> ${project.technologies}</p>
+                                <p class="leading-relaxed text-lg">
+                                    ${project.description}
+                                </p>
+                            </div>
+                            <!-- Swiper Slider -->
+                            <div>
+                                <div class="swiper-container h-[300px]">
+                                    <div class="swiper-wrapper">
+                                        ${project.images.map(image => `
+                                            <div class="swiper-slide">
+                                                <img src="${image}" alt="Project Image" class="w-full h-full object-cover rounded-md" style="aspect-ratio: 16/9;">
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
+            });
+
+            // Re-initialize Swipers after rendering new slides
+            initializeSwipers();
+        }
+
+        // Render pagination controls
+        function renderPagination() {
+            var paginationControls = document.getElementById('pagination-controls');
+            paginationControls.innerHTML = '';
+
+            var totalPages = Math.ceil(projectsData.length / projectsPerPage);
+
+            // Previous Button
+            if (currentPage > 1) {
+                var prevButton = document.createElement('button');
+                prevButton.className = 'px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500';
+                prevButton.innerText = 'Previous';
+                prevButton.addEventListener('click', function() {
+                    currentPage--;
+                    updateProjects();
+                });
+                paginationControls.appendChild(prevButton);
+            }
+
+            // Page Numbers
+            for (var i = 1; i <= totalPages; i++) {
+                var pageButton = document.createElement('button');
+                pageButton.className = 'px-4 py-2 rounded-md ' + (i === currentPage ? 'bg-teal-500 text-white' : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200');
+                pageButton.innerText = i;
+                (function(page) {
+                    pageButton.addEventListener('click', function() {
+                        currentPage = page;
+                        updateProjects();
+                    });
+                })(i);
+                paginationControls.appendChild(pageButton);
+            }
+
+            // Next Button
+            if (currentPage < totalPages) {
+                var nextButton = document.createElement('button');
+                nextButton.className = 'px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500';
+                nextButton.innerText = 'Next';
+                nextButton.addEventListener('click', function() {
+                    currentPage++;
+                    updateProjects();
+                });
+                paginationControls.appendChild(nextButton);
+            }
+        }
+
+        // Update projects and pagination
+        function updateProjects() {
+            renderProjects();
+            renderPagination();
+        }
+
+        // Initialize the projects and pagination on page load
+        generateProjectsData();
+        updateProjects();
     </script>
 </body>
 </html>
