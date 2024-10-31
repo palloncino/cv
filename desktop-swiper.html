@@ -30,6 +30,11 @@
             overflow: hidden;
         }
 
+        nav {
+            visibility: hidden;
+            height: 0;
+        }
+
         /* Full-width and full-height sections */
         .section {
             width: 100vw;
@@ -97,7 +102,7 @@
     <!-- Swiper Wrapper for Full-Page Sections -->
     <div class="swiper-container main-swiper">
         <div class="swiper-wrapper">
-            <!-- Combined Header and Profile Section -->
+            <!-- Profile Section -->
             <div class="swiper-slide section">
                 <!-- Navigation Bar -->
                 <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -106,15 +111,11 @@
                         <div class="flex items-center space-x-6">
                             <!-- Theme Toggle Button -->
                             <button id="theme-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
-                                <!-- Dark Mode Icon -->
                                 <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M17.293 13.293a8 8 0 01-10.586 0 8 8 0 0110.586 0z"></path>
+                                    <path d="M17.293 13.293a8 8 0 01-10.586 0 8 8 0 0110.586 0z"></path>
                                 </svg>
-                                <!-- Light Mode Icon -->
                                 <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2a.75.75 0 01.75.75v1.26a.75.75 0 01-1.5 0V2.75A.75.75 0 0112 2zm5.303 1.974a.75.75 0 011.06 1.06l-.892.892a.75.75 0 01-1.06-1.06l.892-.892zM21 11.25a.75.75 0 010 1.5h-1.26a.75.75 0 010-1.5H21zM18.303 18.303a.75.75 0 01-1.06 0l-.892-.892a.75.75 0 111.06-1.06l.892.892a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-1.26a.75.75 0 011.5 0v1.26A.75.75 0 0112 21zm-5.303-1.974a.75.75 0 01-1.06-1.06l.892-.892a.75.75 0 111.06 1.06l-.892.892zM2.75 12a.75.75 0 01.75-.75h1.26a.75.75 0 010 1.5H3.5a.75.75 0 01-.75-.75zM5.697 5.697a.75.75 0 011.06 0l.892.892a.75.75 0 11-1.06 1.06l-.892-.892a.75.75 0 010-1.06z"></path>
+                                    <path d="M12 2a.75.75 0 01.75.75v1.26a.75.75 0 01-1.5 0V2.75A.75.75 0 0112 2zm5.303 1.974a.75.75 0 011.06 1.06l-.892.892a.75.75 0 01-1.06-1.06l.892-.892zM21 11.25a.75.75 0 010 1.5h-1.26a.75.75 0 010-1.5H21zM18.303 18.303a.75.75 0 01-1.06 0l-.892-.892a.75.75 0 111.06-1.06l.892.892a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-1.26a.75.75 0 011.5 0v1.26A.75.75 0 0112 21zm-5.303-1.974a.75.75 0 01-1.06-1.06l.892-.892a.75.75 0 111.06 1.06l-.892.892zM2.75 12a.75.75 0 01.75-.75h1.26a.75.75 0 010 1.5H3.5a.75.75 0 01-.75-.75zM5.697 5.697a.75.75 0 011.06 0l.892.892a.75.75 0 11-1.06 1.06l-.892-.892a.75.75 0 010-1.06z"></path>
                                     <path d="M12 16.25a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5z"></path>
                                 </svg>
                             </button>
@@ -131,86 +132,58 @@
                         <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-teal-600 dark:hover:text-teal-400">LinkedIn</a>
                         <a href="https://github.com/palloncino" class="hover:text-teal-600 dark:hover:text-teal-400">GitHub</a>
                     </div>
-                    <!-- Profile Summary -->
-                    <div class="mt-8 max-w-3xl text-center">
-                        <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Profile</h2>
-                        <p class="leading-relaxed text-lg">
-                            Experienced Software Developer specializing in Front-end and Full-stack Technologies.
-                        </p>
-                    </div>
                 </section>
-                <!-- Section Indicators -->
-                <div class="section-indicators">
-                    <div class="section-indicator active" data-slide="0">Profile</div>
-                    <div class="section-indicator" data-slide="1">Skills</div>
-                    <div class="section-indicator" data-slide="2">Projects</div>
-                    <div class="section-indicator" data-slide="3">Experience</div>
-                    <div class="section-indicator" data-slide="4">Contact</div>
-                </div>
             </div>
             <!-- Skills Section -->
             <div class="swiper-slide section">
                 <section id="skills" class="container mx-auto px-4 h-full flex flex-col justify-center">
                     <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Skills</h2>
-                    <!-- Placeholder for Skills Content -->
                     <p class="text-lg">[Add your skills here]</p>
                 </section>
-                <!-- Section Indicators -->
-                <div class="section-indicators">
-                    <div class="section-indicator" data-slide="0">Profile</div>
-                    <div class="section-indicator active" data-slide="1">Skills</div>
-                    <div class="section-indicator" data-slide="2">Projects</div>
-                    <div class="section-indicator" data-slide="3">Experience</div>
-                    <div class="section-indicator" data-slide="4">Contact</div>
-                </div>
             </div>
-            <!-- Placeholder Sections -->
+            <!-- Placeholder Sections for Projects, Experience, Contact -->
             <div class="swiper-slide section">
                 <section id="projects" class="container mx-auto px-4 h-full flex flex-col justify-center">
                     <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Projects</h2>
-                    <!-- Placeholder for Projects Content -->
                     <p class="text-lg">[Add your projects here]</p>
                 </section>
-                <!-- Section Indicators -->
-                <div class="section-indicators">
-                    <div class="section-indicator" data-slide="0">Profile</div>
-                    <div class="section-indicator" data-slide="1">Skills</div>
-                    <div class="section-indicator active" data-slide="2">Projects</div>
-                    <div class="section-indicator" data-slide="3">Experience</div>
-                    <div class="section-indicator" data-slide="4">Contact</div>
-                </div>
             </div>
             <div class="swiper-slide section">
                 <section id="experience" class="container mx-auto px-4 h-full flex flex-col justify-center">
                     <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Experience</h2>
-                    <!-- Placeholder for Experience Content -->
                     <p class="text-lg">[Add your experience here]</p>
                 </section>
-                <!-- Section Indicators -->
-                <div class="section-indicators">
-                    <div class="section-indicator" data-slide="0">Profile</div>
-                    <div class="section-indicator" data-slide="1">Skills</div>
-                    <div class="section-indicator" data-slide="2">Projects</div>
-                    <div class="section-indicator active" data-slide="3">Experience</div>
-                    <div class="section-indicator" data-slide="4">Contact</div>
-                </div>
+            </div>
+            <div class="swiper-slide section">
+                <section id="github" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
+                    <p class="text-lg">[Add your Github information here]</p>
+                </section>
+            </div>
+            <div class="swiper-slide section">
+                <section id="prices" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
+                    <p class="text-lg">[Add your Prices information here]</p>
+                </section>
             </div>
             <div class="swiper-slide section">
                 <section id="contact" class="container mx-auto px-4 h-full flex flex-col justify-center">
                     <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
-                    <!-- Placeholder for Contact Content -->
-                    <p class="text-lg">[Add your contact information here]</p>
+                    <p class="text-lg">[Add your Contact information here]</p>
                 </section>
-                <!-- Section Indicators -->
-                <div class="section-indicators">
-                    <div class="section-indicator" data-slide="0">Profile</div>
-                    <div class="section-indicator" data-slide="1">Skills</div>
-                    <div class="section-indicator" data-slide="2">Projects</div>
-                    <div class="section-indicator" data-slide="3">Experience</div>
-                    <div class="section-indicator active" data-slide="4">Contact</div>
-                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Fixed Section Indicators -->
+    <div class="section-indicators">
+        <div class="section-indicator active" data-slide="0">Profile</div>
+        <div class="section-indicator" data-slide="1">Skills</div>
+        <div class="section-indicator" data-slide="2">Projects</div>
+        <div class="section-indicator" data-slide="3">Experience</div>
+        <div class="section-indicator" data-slide="4">Github</div>
+        <div class="section-indicator" data-slide="5">Prices</div>
+        <div class="section-indicator" data-slide="6">Contact</div>
     </div>
 
     <!-- Swiper JS CDN -->
@@ -221,7 +194,6 @@
         var darkIcon = document.getElementById('theme-toggle-dark-icon');
         var lightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Update icons based on the current theme
         if (document.documentElement.classList.contains('dark')) {
             lightIcon.classList.remove('hidden');
         } else {
@@ -229,11 +201,9 @@
         }
 
         themeToggleBtn.addEventListener('click', function () {
-            // Toggle icons inside the button
             darkIcon.classList.toggle('hidden');
             lightIcon.classList.toggle('hidden');
 
-            // Toggle theme and save preference in localStorage
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
                     document.documentElement.classList.add('dark');
