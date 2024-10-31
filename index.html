@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Antonio Guiotto - Web Developer</title>
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lexend:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,415 +17,605 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Helvetica', 'sans-serif'],
                     },
-                    colors: {
-                        'strong-orange': '#ffc600',
-                        'strong-black': '#000000',
-                        'strong-white': '#FFFFFF'
-                    },
-                    maxWidth: {
-                        'container': '1400px'
-                    }
                 },
             },
         };
     </script>
+    <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
     <!-- Swiper CSS CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <style>
-        /* Import custom font */
-        @font-face {
-            font-family: 'Poppins';
-            src: url('./media/Poppins-Regular.ttf') format('truetype');
-        }
-
-        :root {
-            --strong-orange: #ffc600;
-            --strong-black: #000000;
-            --strong-white: #FFFFFF;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            overflow: hidden;
-            color: var(--strong-white);
+            font-family: 'Helvetica', sans-serif;
         }
 
-        /* Full-width and full-height sections */
-        .section {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-        }
-
+        /* Add container max-width */
         .container {
-            max-width: 1000px!important;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 1100px !important;
         }
 
-        h1,
-        h2,
-        p,
-        a {
-            color: var(--strong-orange);
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            line-height: 1.3;
-            border-bottom: 4px solid var(--strong-black);
-        }
-
-        p {
-            font-size: 1.5rem;
-            line-height: 1.6;
-        }
-
-        /* Swiper container adjustments */
         .swiper-container {
-            width: 100%;
-            height: 100%;
+            overflow: hidden;
         }
 
-        /* Fixed Section Indicators */
-        .section-indicators {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
+        .swiper-pagination {
+            display: none!important;
         }
 
-        .section-indicator {
-            padding: 0.75rem 1.5rem;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            border: 3px solid #000000;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            font-weight: 700;
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+
+            nav,
+            footer,
+            .no-print {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 1000px !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            a {
+                color: #000;
+                text-decoration: none;
+            }
         }
 
-        .section-indicator.active {
-            background-color: #ffc600;
-            color: #000;
-        }
-
-        nav {
-            visibility: hidden;
-            height: 0;
-        }
-
-        /* Hide scrollbar for Chrome, Safari, and Opera */
-        .experience-scrollable::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Hide scrollbar for IE, Edge, and Firefox */
-        .experience-scrollable {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-
-        a:hover {
-            color: var(--strong-white);
+        .instaplug-widget-wrapper .post-footer,
+        .instaplug-widget-wrapper .post-header,
+        .instaplug-widget-wrapper .slick-prev,
+        .instaplug-widget-wrapper .slick-next,
+        .instaplug-watermark,
+        [class*="slider absolute"] {
+            display: none !important;
         }
     </style>
+    <!-- Theme Initialization Script -->
+    <script>
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <!-- Instaplug Script -->
+    <script async src="https://app.instaplug.app/platform/instaplug.js" 
+        onload='
+            window.renderApp({
+                "containerId": "f7796853-cc87-4e6f-ac6a-4bf96e14c752",
+                "domain": "https://app.instaplug.app/",
+                "widgetClass": "",
+                "fontFamily": "",
+                "color": "",
+                "colorLink": "",
+                "colorLinkActive": "",
+                "colorLinkHover": ""
+            });
+        '>
+    </script>
 </head>
-
-<body class="text-strong-white">
-
-    <!-- Video Background -->
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
-        <source src="./media/drone-jungle.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Swiper Wrapper for Full-Page Sections -->
-    <div class="swiper-container main-swiper">
-        <div class="swiper-wrapper">
-            <!-- Profile Section -->
-            <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="profile" class="container">
-                    <div
-                        class="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-center pb-20">
-                        <div class="h-[calc(100vh-50px)] flex items-center justify-center">
-                            <div class="flex flex-col items-center text-center">
-                                <div class="mb-6">
-                                    <img class="w-48 h-48 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-black shadow-lg dark:border-teal-400"
-                                        src="./me.jpeg" alt="Antonio Guiotto">
-                                </div>
-                                <h1 class="text-4xl font-semibold mt-6">Antonio Guiotto</h1>
-                                <p class="text-xl mt-2 text-strong-orange font-medium">Experienced Web Developer</p>
-                                <p class="text-lg mt-1">Italian, Date of Birth: 20/03/1995</p>
-                                <div class="mt-4 flex flex-wrap justify-center space-x-6">
-                                    <a href="mailto:powerhydratoni@gmail.com" class="hover:text-strong-orange">Email</a>
-                                    <a href="https://www.linkedin.com/in/antonioguiotto"
-                                        class="hover:text-strong-orange">LinkedIn</a>
-                                    <a href="https://github.com/palloncino" class="hover:text-strong-orange">GitHub</a>
-                                </div>
-                                <div class="mt-4 max-w-2xl text-base leading-relaxed">
-                                    Experienced Software Developer specializing in Front-end and Full-stack
-                                    Technologies, with a passion for delivering high-quality, efficient, and scalable
-                                    solutions. Over the past year, I have independently completed numerous complex
-                                    projects, demonstrating strong problem-solving skills and a commitment to
-                                    excellence. Eager to contribute to a dynamic team to develop innovative software
-                                    applications.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Skills Section -->
-            <div class="swiper-slide section flex items-center justify-center h-[calc(100vh-50px)]">
-                <section id="skills" class="container mx-auto px-4 py-12">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">Languages & Frameworks</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>JavaScript / TypeScript</li>
-                                <li>Python</li>
-                                <li>PHP</li>
-                                <li>HTML / CSS / SASS</li>
-                                <li>Node.js</li>
-                                <li>React / React Native</li>
-                                <li>Angular</li>
-                                <li>WordPress</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">Tools & Technologies</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Git (GitHub, GitLab, Bitbucket)</li>
-                                <li>AWS / Azure</li>
-                                <li>CLI Command-line Interface</li>
-                                <li>Atlassian Suite</li>
-                                <li>Adobe Suite</li>
-                                <li>Figma</li>
-                                <li>2D & 3D Animations (Three.js, Canvas)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">UX/UI Design Expertise</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Figma Mastery</li>
-                                <li>Appealing UI Creation</li>
-                                <li>User-centric Designs</li>
-                                <li>Adobe Creative Suite</li>
-                                <li>Inkscape</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">Additional Skills</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Software Architecture</li>
-                                <li>Design Patterns</li>
-                                <li>Network Management</li>
-                                <li>Video Streaming Technologies</li>
-                                <li>Database Management</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <!-- Placeholder Sections for Projects, Experience, Contact -->
-            <!-- <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="projects" class="container">
-                    <h2>Projects</h2>
-                    <p>[Add your projects here]</p>
-                </section>
-            </div> -->
-            <div class="swiper-slide section flex items-center justify-center h-[calc(100vh-50px)]">
-                <section id="experience" class="container mx-auto px-4 py-12 h-full relative">
-                    <div class="max-w-4xl mx-auto py-20 overflow-y-auto h-full relative experience-scrollable">
-                        <!-- Experience 1 -->
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-semibold">Freelancer, Antonio Guiotto, Italy</h3>
-                            <p class="text-sm">August 2023 — Present</p>
-                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Delivered complex projects independently, managing all phases from conception to
-                                    deployment.</li>
-                                <li>Improved UI/UX for online businesses using advanced visual and technical skills.
-                                </li>
-                                <li>Developed custom WordPress websites with unique features tailored to client needs.
-                                </li>
-                                <li>Created sophisticated 2D and 3D web animations to enhance user engagement.</li>
-                            </ul>
-                        </div>
-                        <!-- Experience 2 -->
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-semibold">Software Engineer, Ovalx, Turin</h3>
-                            <p class="text-sm">April 2022 — February 2023</p>
-                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Created modern and secure web applications with React and TypeScript.</li>
-                                <li>Developed new features for onboarding websites, including a comprehensive Profile
-                                    panel.</li>
-                                <li>Managed multiple CI/CD pipelines with Bitbucket and GitLab.</li>
-                                <li>Collaborated with designers and QA team to ensure high-quality deliverables.</li>
-                            </ul>
-                        </div>
-                        <!-- Experience 3 -->
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-semibold">Front End Developer, Sky, Remote</h3>
-                            <p class="text-sm">February 2020 — August 2021</p>
-                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Developed and maintained NOWTV application software for console browsers.</li>
-                                <li>Created new features tailored to the Italian market.</li>
-                                <li>Gained experience in video streaming technologies.</li>
-                                <li>Collaborated with the Automation Test team to ensure high-quality deliverables.</li>
-                            </ul>
-                        </div>
-                        <!-- Experience 4 -->
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-semibold">Front End Developer, RED Software Systems, Milan</h3>
-                            <p class="text-sm">December 2018 — January 2020</p>
-                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Built e-commerce front-end platforms using Polymer.js following Agile methodologies.
-                                </li>
-                                <li>Focused on high-quality code and strict procedures.</li>
-                                <li>Worked with pure JavaScript, creating internal modules and design systems.</li>
-                                <li>Collaborated effectively within a team, maintaining high code standards.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- <div class="swiper-slide section flex flex-col items-center justify-center h-[calc(100vh-50px)] bg-transparent text-gray-300">
-                <section id="github" class="container mx-auto px-4 py-12">
-                    <div class="text-center space-y-8">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4 text-gray-100">GitHub Contribution Graph</h3>
-                            <img src="https://ghchart.rshah.org/gray/palloncino" alt="GitHub Contribution Graph of palloncino" class="mx-auto">
-                        </div>
-                        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                            <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=onedark&show_icons=true&hide_border=true" alt="GitHub Stats" class="max-w-md">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=onedark&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" class="max-w-md">
-                        </div>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" class="h-10">
-                            <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript" class="h-10">
-                            <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white" alt="Node.js" class="h-10">
-                            <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React.js" class="h-10">
-                            <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white" alt="Angular" class="h-10">
-                            <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white" alt="AWS" class="h-10">
-                            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" class="h-10">
-                            <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" class="h-10">
-                            <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP" class="h-10">
-                        </div>
-                    </div>
-                </section>
-            </div> -->
-            <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="prices" class="container">
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">Base Information</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Base Rate: €36/hour</li>
-                                <li>Maximum Availability: 6 hours per day, every day of the week (including weekends)</li>
-                            </ul>
-                        </div>
-        
-                        <p class="text-lg">
-                            I offer a flexible collaboration plan with a constant, unchanged rate, regardless of the employment duration. No additional interest or vacation accrual is included.
-                        </p>
-        
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">Rate Details</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Hourly Rate: €36/hour</li>
-                                <li>Daily Rate (6 hours): €216</li>
-                                <li>Weekly Rate (42 hours): €1,512</li>
-                                <li>Monthly Rate (4 weeks, 168 hours): €6,048</li>
-                            </ul>
-                        </div>
-        
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-2">Additional Terms</h3>
-                            <ul class="list-disc list-inside space-y-2 text-lg">
-                                <li>Maximum working hours: 6 hours per day, available every day of the week</li>
-                                <li>Payment Terms: End of each month, invoiced based on actual hours worked</li>
-                                <li>Renewal: Contracts can be renewed or adapted based on new collaboration needs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="contact" class="container">
-                    <p class="leading-relaxed text-lg mb-6 text-white">
-                        I'm currently open to new opportunities and collaborations. Feel free to reach out!
-                    </p>
-                    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-                        <a href="mailto:powerhydratoni@gmail.com"
-                            class="bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-black dark:bg-black dark:hover:bg-black">Email
-                            Me</a>
-                        <a href="https://www.linkedin.com/in/antonioguiotto"
-                            class="bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-black dark:bg-black dark:hover:bg-black">Connect
-                            on LinkedIn</a>
-                        <a href="./media/new-cv-2024.pdf" download
-                            class="bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-black dark:bg-black dark:hover:bg-black">Download
-                            CV</a>
-                    </div>
-                </section>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Navigation Bar (Will be hidden in print) -->
+    <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 no-print">
+        <div class="container mx-auto flex items-center justify-between px-4 py-4">
+            <a href="#" class="text-2xl font-bold">Antonio Guiotto</a>
+            <div class="flex items-center space-x-6">
+                <a href="#profile" class="hover:text-teal-600 dark:hover:text-teal-400">Profile</a>
+                <a href="#skills" class="hover:text-teal-600 dark:hover:text-teal-400">Skills</a>
+                <a href="#projects" class="hover:text-teal-600 dark:hover:text-teal-400">Projects</a>
+                <a href="#experience" class="hover:text-teal-600 dark:hover:text-teal-400">Experience</a>
+                <a href="#pricing" class="hover:text-teal-600 dark:hover:text-teal-400">Pricing</a>
+                <a href="#contact" class="hover:text-teal-600 dark:hover:text-teal-400">Contact</a>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <!-- Dark Mode Icon -->
+                    <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M17.293 13.293a8 8 0 01-10.586 0 8 8 0 0110.586 0z"></path>
+                    </svg>
+                    <!-- Light Mode Icon -->
+                    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2a.75.75 0 01.75.75v1.26a.75.75 0 01-1.5 0V2.75A.75.75 0 0112 2zm5.303 1.974a.75.75 0 011.06 1.06l-.892.892a.75.75 0 01-1.06-1.06l.892-.892zM21 11.25a.75.75 0 010 1.5h-1.26a.75.75 0 010-1.5H21zM18.303 18.303a.75.75 0 01-1.06 0l-.892-.892a.75.75 0 111.06-1.06l.892.892a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-1.26a.75.75 0 011.5 0v1.26A.75.75 0 0112 21zm-5.303-1.974a.75.75 0 01-1.06-1.06l.892-.892a.75.75 0 111.06 1.06l-.892.892zM2.75 12a.75.75 0 01.75-.75h1.26a.75.75 0 010 1.5H3.5a.75.75 0 01-.75-.75zM5.697 5.697a.75.75 0 011.06 0l.892.892a.75.75 0 11-1.06 1.06l-.892-.892a.75.75 0 010-1.06z"></path>
+                        <path d="M12 16.25a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Fixed Section Indicators -->
-    <div class="section-indicators">
-        <div class="section-indicator active" data-slide="0">Profile</div>
-        <div class="section-indicator" data-slide="1">Skills</div>
-        <!-- <div class="section-indicator" data-slide="2">Projects</div> -->
-        <div class="section-indicator" data-slide="3">Experience</div>
-        <!-- <div class="section-indicator" data-slide="4">Github</div> -->
-        <div class="section-indicator" data-slide="5">Prices</div>
-        <div class="section-indicator" data-slide="6">Contact</div>
-    </div>
+    <!-- Header Section -->
+    <header class="container mx-auto flex flex-col items-center px-4 py-12">
+        <img class="w-48 h-48 rounded-full object-cover border-4 border-teal-500 shadow-lg dark:border-teal-400" src="./me.jpeg" alt="Antonio Guiotto">
+        <h1 class="text-5xl font-extrabold mt-6">Antonio Guiotto</h1>
+        <p class="text-xl mt-2 text-teal-600 dark:text-teal-400">Experienced Web Developer</p>
+        <p class="text-lg mt-1">Barcelona | Date of Birth: 20/03/1995</p>
+        <div class="mt-4 flex flex-wrap justify-center space-x-6">
+            <a href="mailto:powerhydratoni@gmail.com" class="hover:text-teal-600 dark:hover:text-teal-400">Email</a>
+            <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-teal-600 dark:hover:text-teal-400">LinkedIn</a>
+            <!-- <a href="https://www.antonioguiotto.com" class="hover:text-teal-600">Portfolio</a> -->
+            <a href="https://github.com/palloncino" class="hover:text-teal-600 dark:hover:text-teal-400">GitHub</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <!-- Profile Summary -->
+        <section id="profile" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Profile</h2>
+            <p class="leading-relaxed text-lg">
+                Experienced Software Developer specializing in Front-end and Full-stack Technologies, with a passion for delivering high-quality, efficient, and scalable solutions. Over the past year, I have independently completed numerous complex projects, demonstrating strong problem-solving skills and a commitment to excellence. Eager to contribute to a dynamic team to develop innovative software applications.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Languages & Frameworks</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>JavaScript / TypeScript</li>
+                        <li>Python</li>
+                        <li>PHP</li>
+                        <li>HTML / CSS / SASS</li>
+                        <li>Node.js</li>
+                        <li>React / React Native</li>
+                        <li>Angular</li>
+                        <li>WordPress</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Tools & Technologies</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Git (GitHub, GitLab, Bitbucket)</li>
+                        <li>AWS / Azure</li>
+                        <li>CLI Command-line Interface</li>
+                        <li>Atlassian Suite</li>
+                        <li>Adobe Suite</li>
+                        <li>Figma</li>
+                        <li>2D & 3D Animations (Three.js, Canvas)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">UX/UI Design Expertise</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Figma Mastery</li>
+                        <li>Appealing UI Creation</li>
+                        <li>User-centric Designs</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>Inkscape</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Additional Skills</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Software Architecture</li>
+                        <li>Design Patterns</li>
+                        <li>Network Management</li>
+                        <li>Video Streaming Technologies</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Projects with Pagination -->
+        <section id="projects" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Notable Projects</h2>
+            <div id="projects-container" class="space-y-12">
+                <!-- Projects will be injected here by JavaScript -->
+            </div>
+            <!-- Pagination Controls -->
+            <div class="flex justify-center mt-8">
+                <nav id="pagination-controls" class="inline-flex space-x-2">
+                    <!-- Pagination buttons will be injected here by JavaScript -->
+                </nav>
+            </div>
+        </section>
+
+        <!-- The rest of your content remains the same -->
+        <!-- Professional Experience -->
+        <section id="experience" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Professional Experience</h2>
+            <!-- Experience 1 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold">Freelancer, Antonio Guiotto, Italy</h3>
+                <p class="text-teal-600 dark:text-teal-400"><em>August 2023 — Present</em></p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                    <li>Delivered complex projects independently, managing all phases from conception to deployment.</li>
+                    <li>Improved UI/UX for online businesses using advanced visual and technical skills.</li>
+                    <li>Developed custom WordPress websites with unique features tailored to client needs.</li>
+                    <li>Created sophisticated 2D and 3D web animations to enhance user engagement.</li>
+                </ul>
+            </div>
+            <!-- Experience 2 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold">Software Engineer, Ovalx, Turin</h3>
+                <p class="text-teal-600 dark:text-teal-400"><em>April 2022 — February 2023</em></p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                    <li>Created modern and secure web applications with React and TypeScript.</li>
+                    <li>Developed new features for onboarding websites, including a comprehensive Profile panel.</li>
+                    <li>Managed multiple CI/CD pipelines with Bitbucket and GitLab.</li>
+                    <li>Collaborated with designers and QA team to ensure high-quality deliverables.</li>
+                </ul>
+            </div>
+            <!-- Experience 3 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold">Front End Developer, Sky, Remote</h3>
+                <p class="text-teal-600 dark:text-teal-400"><em>February 2020 — August 2021</em></p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                    <li>Developed and maintained NOWTV application software for console browsers.</li>
+                    <li>Created new features tailored to the Italian market.</li>
+                    <li>Gained experience in video streaming technologies.</li>
+                    <li>Collaborated with the Automation Test team to ensure high-quality deliverables.</li>
+                </ul>
+            </div>
+            <!-- Experience 4 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold">Front End Developer, RED Software Systems, Milan</h3>
+                <p class="text-teal-600 dark:text-teal-400"><em>December 2018 — January 2020</em></p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                    <li>Built e-commerce front-end platforms using Polymer.js following Agile methodologies.</li>
+                    <li>Focused on high-quality code and strict procedures.</li>
+                    <li>Worked with pure JavaScript, creating internal modules and design systems.</li>
+                    <li>Collaborated effectively within a team, maintaining high code standards.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Certifications & Achievements</h2>
+            <ul class="list-disc list-inside space-y-2 text-lg">
+                <li>Youthpass</li>
+                <li>GitHub Achievements: YOLO, Pull Shark x2, Quickdraw</li>
+            </ul>
+        </section>
+
+        <!-- Hobbies -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Hobbies & Interests</h2>
+            <ul class="list-disc list-inside space-y-2 text-lg">
+                <li>Art and Tattoos</li>
+                <li>Calisthenics and Sports</li>
+                <li>Psychology</li>
+                <li>Fluent in English and Spanish</li>
+                <li>Traveling and Cultural Exploration</li>
+            </ul>
+        </section>
+
+        <!-- GitHub & Open Source -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">GitHub & Open Source</h2>
+            <div class="text-center">
+                <!-- GitHub Contribution Graph -->
+                <div class="mb-6">
+                    <h3 class="text-2xl font-semibold mb-4">GitHub Contribution Graph</h3>
+                    <img src="https://ghchart.rshah.org/gray/palloncino" alt="GitHub Contribution Graph of palloncino" class="mx-auto">
+                </div>
+                <!-- Tech Badges -->
+                <div class="mb-6 flex flex-wrap justify-center gap-4">
+                    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" class="h-10">
+                    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript" class="h-10">
+                    <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white" alt="Node.js" class="h-10">
+                    <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React.js" class="h-10">
+                    <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white" alt="Angular" class="h-10">
+                    <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white" alt="AWS" class="h-10">
+                    <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" class="h-10">
+                    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" class="h-10">
+                    <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP" class="h-10">
+                </div>
+                <!-- GitHub Stats -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=default&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" class="max-w-md">
+                    <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=default&show_icons=true&hide_border=true" alt="GitHub Stats" class="max-w-md">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Get in Touch</h2>
+            <p class="leading-relaxed text-lg mb-6">
+                I'm currently open to new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <a href="mailto:powerhydratoni@gmail.com" class="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500">Email Me</a>
+                <a href="https://www.linkedin.com/in/antonioguiotto" class="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500">Connect on LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- Instaplug Widget Section -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Instagram Feed</h2>
+            <div id="f7796853-cc87-4e6f-ac6a-4bf96e14c752"></div>
+        </section>
+
+        <!-- Collaboration & Rates Section -->
+        <section id="pricing" class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Collaboration Plan & Hourly Rates</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Base Information</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Base Rate: €36/hour</li>
+                        <li>Maximum Availability: 6 hours per day, every day of the week (including weekends)</li>
+                    </ul>
+                </div>
+
+                <p class="text-lg">
+                    I offer a flexible collaboration plan with a constant, unchanged rate, regardless of the employment duration. No additional interest or vacation accrual is included.
+                </p>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Rate Details</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Hourly Rate: €36/hour</li>
+                        <li>Daily Rate (6 hours): €216</li>
+                        <li>Weekly Rate (42 hours): €1,512</li>
+                        <li>Monthly Rate (4 weeks, 168 hours): €6,048</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Additional Terms</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Maximum working hours: 6 hours per day, available every day of the week</li>
+                        <li>Payment Terms: End of each month, invoiced based on actual hours worked</li>
+                        <li>Renewal: Contracts can be renewed or adapted based on new collaboration needs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Will be hidden in print) -->
+    <footer class="bg-white border-t border-gray-200 py-6 no-print dark:bg-gray-800 dark:border-gray-700">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500 dark:text-gray-400">&copy; 2024 by Antonio Guiotto</p>
+        </div>
+    </footer>
 
     <!-- Swiper JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Theme Toggle Script -->
     <script>
-        // Initialize Swiper
-        var mainSwiper = new Swiper('.main-swiper', {
-            loop: false,
-            allowTouchMove: true,
-            autoplay: false
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        var darkIcon = document.getElementById('theme-toggle-dark-icon');
+        var lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Update icons based on the current theme
+        if (document.documentElement.classList.contains('dark')) {
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            // Toggle icons inside the button
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // Toggle theme and save preference in localStorage
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
         });
 
-        // Section Indicators
-        document.querySelectorAll('.section-indicator').forEach(function (indicator, index) {
-            indicator.addEventListener('click', function () {
-                mainSwiper.slideTo(index);
+        // Initialize Swiper sliders
+        function initializeSwipers() {
+            var swiperContainers = document.querySelectorAll('.swiper-container');
+            swiperContainers.forEach(function(container) {
+                new Swiper(container, {
+                    loop: true,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: true,
+                    },
+                    pagination: {
+                        el: container.querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                });
             });
-        });
+        }
 
-        // Update active indicator on slide change
-        mainSwiper.on('slideChange', function () {
-            document.querySelectorAll('.section-indicator').forEach(function (indicator, index) {
-                indicator.classList.toggle('active', index === mainSwiper.activeIndex);
+        // Pagination Variables
+        var projectsPerPage = 3;
+        var currentPage = 1;
+        var projectsData = [];
+
+        // Generate dummy projects data by repeating the same three projects
+        function generateProjectsData() {
+            var baseProjects = [
+            {
+                    title: "GUCCI - Leather Stocks Commerce Platform",
+                    technologies: "TypeScript, Node.js",
+                    description: "Developed a private commerce platform for managing leather stock transactions between Gucci and Saint Laurent. Implemented secure authentication, inventory management, and real-time data synchronization.",
+                    images: ["./media/gucci.png"]
+                },
+                {
+                    title: "SERMIXER - Quotation App",
+                    technologies: "React, TypeScript, SQL Server",
+                    description: "Built a frontend application for generating complex quotations. Developed custom SQL Server backend for data management. Implemented features like dynamic pricing, PDF generation, and user authentication.",
+                    images: ["./media/sermixer-1.png", "./media/sermixer-2.png"]
+                },
+                {
+                    title: "SATIFILTRI - IoT devices managment",
+                    technologies: "Laravel, MariaDB, MQTT hosted on Linux VPS",
+                    description: "Developed a Laravel-based dashboard app for IoT device monitoring and management. Integrated an MQTT client to communicate with devices, supporting secure TLS connections and real-time data updates. Built out user roles, logging, and queue-driven background processing for reliability. Key features include interactive device status visualization, alert management, and direct publish/subscribe controls for device registers.",
+                    images: ["./media/satifiltri-1.png", "./media/satifiltri-2.png"]
+                },
+                {
+                    title: "TERMOPAROTTO",
+                    technologies: "React, Tailwind, MongoDB",
+                    description: "",
+                    images: ["./media/termo-1.png", "./media/termo-2.png"]
+                },
+                {
+                    title: "OVALX - Trading platform, Account Managment Panel App",
+                    technologies: "React",
+                    description: "",
+                    images: ["./media/ovalx-2.png"]
+                },
+                {
+                    title: "EDGE - Fully customized and animated website",
+                    technologies: "WordPress",
+                    description: "",
+                    images: ["./media/edge-1.png", "./media/edge-2.png"]
+                },
+                {
+                    title: "NOWTV - Vodafone's App for TVs",
+                    technologies: "React",
+                    description: "Developed and maintained NOWTV application software running on console platforms, gaining experience in video streaming techniques and cross-platform development.",
+                    images: ["./media/nowtv-1.png", "./media/nowtv-2.png"]
+                },
+            ];
+            // Repeat the base projects to create multiple pages
+            for (var i = 0; i < baseProjects.length; i++) { // Adjust the number to create more pages
+                projectsData.push(baseProjects[i % baseProjects.length]);
+            }
+        }
+
+        // Render projects for the current page
+        function renderProjects() {
+            var projectsContainer = document.getElementById('projects-container');
+            projectsContainer.innerHTML = '';
+            var startIndex = (currentPage - 1) * projectsPerPage;
+            var endIndex = startIndex + projectsPerPage;
+            var currentProjects = projectsData.slice(startIndex, endIndex);
+
+            currentProjects.forEach(function(project) {
+                var projectHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <!-- Project Description -->
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">${project.title}</h3>
+                                <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> ${project.technologies}</p>
+                                <p class="leading-relaxed text-lg">
+                                    ${project.description}
+                                </p>
+                            </div>
+                            <!-- Swiper Slider -->
+                            <div>
+                                <div class="swiper-container h-[300px]">
+                                    <div class="swiper-wrapper">
+                                        ${project.images.map(image => `
+                                            <div class="swiper-slide">
+                                                <img src="${image}" alt="Project Image" class="w-full h-full object-cover rounded-md" style="aspect-ratio: 16/9;">
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
             });
-        });
+
+            // Re-initialize Swipers after rendering new slides
+            initializeSwipers();
+        }
+
+        // Render pagination controls
+        function renderPagination() {
+            var paginationControls = document.getElementById('pagination-controls');
+            paginationControls.innerHTML = '';
+
+            var totalPages = Math.ceil(projectsData.length / projectsPerPage);
+
+            // Previous Button
+            if (currentPage > 1) {
+                var prevButton = document.createElement('button');
+                prevButton.className = 'px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500';
+                prevButton.innerText = 'Previous';
+                prevButton.addEventListener('click', function() {
+                    currentPage--;
+                    updateProjects();
+                });
+                paginationControls.appendChild(prevButton);
+            }
+
+            // Page Numbers
+            for (var i = 1; i <= totalPages; i++) {
+                var pageButton = document.createElement('button');
+                pageButton.className = 'px-4 py-2 rounded-md ' + (i === currentPage ? 'bg-teal-500 text-white' : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200');
+                pageButton.innerText = i;
+                (function(page) {
+                    pageButton.addEventListener('click', function() {
+                        currentPage = page;
+                        updateProjects();
+                    });
+                })(i);
+                paginationControls.appendChild(pageButton);
+            }
+
+            // Next Button
+            if (currentPage < totalPages) {
+                var nextButton = document.createElement('button');
+                nextButton.className = 'px-4 py-2 bg-teal-500 text-white rounded-md hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500';
+                nextButton.innerText = 'Next';
+                nextButton.addEventListener('click', function() {
+                    currentPage++;
+                    updateProjects();
+                });
+                paginationControls.appendChild(nextButton);
+            }
+        }
+
+        // Update projects and pagination
+        function updateProjects() {
+            renderProjects();
+            renderPagination();
+        }
+
+        // Initialize the projects and pagination on page load
+        generateProjectsData();
+        updateProjects();
     </script>
+    <!-- Add this where you want the Instaplug widget to appear -->
+    <div id="f7796853-cc87-4e6f-ac6a-4bf96e14c752"></div>
 </body>
-
 </html>
