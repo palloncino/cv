@@ -36,11 +36,17 @@
             src: url('./media/Poppins-Regular.ttf') format('truetype');
         }
 
+        :root {
+            --strong-orange: #ffc600;
+            --strong-black: #000000;
+            --strong-white: #FFFFFF;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             overflow: hidden;
-            color: #FFF;
+            color: var(--strong-white);
         }
 
         /* Full-width and full-height sections */
@@ -56,8 +62,11 @@
             padding: 2rem;
         }
 
-        h1, h2, p, a {
-            color: #ffc600;
+        h1,
+        h2,
+        p,
+        a {
+            color: var(--strong-orange);
             font-weight: 700;
         }
 
@@ -69,7 +78,7 @@
         h2 {
             font-size: 2.5rem;
             line-height: 1.3;
-            border-bottom: 4px solid #000000;
+            border-bottom: 4px solid var(--strong-black);
         }
 
         p {
@@ -115,6 +124,21 @@
             visibility: hidden;
             height: 0;
         }
+
+        /* Hide scrollbar for Chrome, Safari, and Opera */
+        .experience-scrollable::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge, and Firefox */
+        .experience-scrollable {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        a:hover {
+            color: var(--strong-white);
+        }
     </style>
 </head>
 
@@ -125,14 +149,15 @@
         <source src="./media/drone-jungle.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
+
     <!-- Swiper Wrapper for Full-Page Sections -->
     <div class="swiper-container main-swiper">
         <div class="swiper-wrapper">
             <!-- Profile Section -->
             <div class="swiper-slide section flex flex-col items-center justify-center">
                 <section id="profile" class="container">
-                    <div class="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-center pb-20">
+                    <div
+                        class="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-center pb-20">
                         <div class="h-[calc(100vh-50px)] flex items-center justify-center">
                             <div class="flex flex-col items-center text-center">
                                 <div class="mb-6">
@@ -144,11 +169,17 @@
                                 <p class="text-lg mt-1">Italian, Date of Birth: 20/03/1995</p>
                                 <div class="mt-4 flex flex-wrap justify-center space-x-6">
                                     <a href="mailto:powerhydratoni@gmail.com" class="hover:text-strong-orange">Email</a>
-                                    <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-strong-orange">LinkedIn</a>
+                                    <a href="https://www.linkedin.com/in/antonioguiotto"
+                                        class="hover:text-strong-orange">LinkedIn</a>
                                     <a href="https://github.com/palloncino" class="hover:text-strong-orange">GitHub</a>
                                 </div>
                                 <div class="mt-4 max-w-2xl text-base leading-relaxed">
-                                    Experienced Software Developer specializing in Front-end and Full-stack Technologies, with a passion for delivering high-quality, efficient, and scalable solutions. Over the past year, I have independently completed numerous complex projects, demonstrating strong problem-solving skills and a commitment to excellence. Eager to contribute to a dynamic team to develop innovative software applications.
+                                    Experienced Software Developer specializing in Front-end and Full-stack
+                                    Technologies, with a passion for delivering high-quality, efficient, and scalable
+                                    solutions. Over the past year, I have independently completed numerous complex
+                                    projects, demonstrating strong problem-solving skills and a commitment to
+                                    excellence. Eager to contribute to a dynamic team to develop innovative software
+                                    applications.
                                 </div>
                             </div>
                         </div>
@@ -157,9 +188,8 @@
             </div>
 
             <!-- Skills Section -->
-            <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="skills" class="container">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Skills</h2>
+            <div class="swiper-slide section flex items-center justify-center h-[calc(100vh-50px)]">
+                <section id="skills" class="container mx-auto px-4 py-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <h3 class="text-2xl font-semibold mb-4">Languages & Frameworks</h3>
@@ -210,22 +240,88 @@
                 </section>
             </div>
             <!-- Placeholder Sections for Projects, Experience, Contact -->
-            <div class="swiper-slide section flex flex-col items-center justify-center">
+            <!-- <div class="swiper-slide section flex flex-col items-center justify-center">
                 <section id="projects" class="container">
                     <h2>Projects</h2>
                     <p>[Add your projects here]</p>
                 </section>
-            </div>
-            <div class="swiper-slide section flex flex-col items-center justify-center">
-                <section id="experience" class="container">
-                    <h2>Experience</h2>
-                    <p>[Add your experience here]</p>
+            </div> -->
+            <div class="swiper-slide section flex items-center justify-center h-[calc(100vh-50px)]">
+                <section id="experience" class="container mx-auto px-4 py-12 h-full relative">
+                    <div class="max-w-4xl mx-auto py-20 overflow-y-auto h-full relative experience-scrollable">
+                        <!-- Experience 1 -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-semibold">Freelancer, Antonio Guiotto, Italy</h3>
+                            <p class=""><em>August 2023 — Present</em></p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                                <li>Delivered complex projects independently, managing all phases from conception to deployment.</li>
+                                <li>Improved UI/UX for online businesses using advanced visual and technical skills.</li>
+                                <li>Developed custom WordPress websites with unique features tailored to client needs.</li>
+                                <li>Created sophisticated 2D and 3D web animations to enhance user engagement.</li>
+                            </ul>
+                        </div>
+                        <!-- Experience 2 -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-semibold">Software Engineer, Ovalx, Turin</h3>
+                            <p class=""><em>April 2022 — February 2023</em></p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                                <li>Created modern and secure web applications with React and TypeScript.</li>
+                                <li>Developed new features for onboarding websites, including a comprehensive Profile panel.</li>
+                                <li>Managed multiple CI/CD pipelines with Bitbucket and GitLab.</li>
+                                <li>Collaborated with designers and QA team to ensure high-quality deliverables.</li>
+                            </ul>
+                        </div>
+                        <!-- Experience 3 -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-semibold">Front End Developer, Sky, Remote</h3>
+                            <p class=""><em>February 2020 — August 2021</em></p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                                <li>Developed and maintained NOWTV application software for console browsers.</li>
+                                <li>Created new features tailored to the Italian market.</li>
+                                <li>Gained experience in video streaming technologies.</li>
+                                <li>Collaborated with the Automation Test team to ensure high-quality deliverables.</li>
+                            </ul>
+                        </div>
+                        <!-- Experience 4 -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-semibold">Front End Developer, RED Software Systems, Milan</h3>
+                            <p class=""><em>December 2018 — January 2020</em></p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                                <li>Built e-commerce front-end platforms using Polymer.js following Agile methodologies.</li>
+                                <li>Focused on high-quality code and strict procedures.</li>
+                                <li>Worked with pure JavaScript, creating internal modules and design systems.</li>
+                                <li>Collaborated effectively within a team, maintaining high code standards.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
             <div class="swiper-slide section flex flex-col items-center justify-center">
                 <section id="github" class="container">
-                    <h2>Contact</h2>
-                    <p>[Add your Github information here]</p>
+                    <div class="text-center">
+                        <!-- GitHub Contribution Graph -->
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">GitHub Contribution Graph</h3>
+                            <img src="https://ghchart.rshah.org/gray/palloncino" alt="GitHub Contribution Graph of palloncino" class="mx-auto">
+                        </div>
+                        <!-- Tech Badges -->
+                        <div class="mb-6 flex flex-wrap justify-center gap-4">
+                            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" class="h-10">
+                            <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript" class="h-10">
+                            <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white" alt="Node.js" class="h-10">
+                            <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React.js" class="h-10">
+                            <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white" alt="Angular" class="h-10">
+                            <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white" alt="AWS" class="h-10">
+                            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" class="h-10">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" class="h-10">
+                            <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP" class="h-10">
+                        </div>
+                        <!-- GitHub Stats -->
+                        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=default&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" class="max-w-md">
+                            <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=default&show_icons=true&hide_border=true" alt="GitHub Stats" class="max-w-md">
+                        </div>
+                    </div>
                 </section>
             </div>
             <div class="swiper-slide section flex flex-col items-center justify-center">
@@ -247,7 +343,7 @@
     <div class="section-indicators">
         <div class="section-indicator active" data-slide="0">Profile</div>
         <div class="section-indicator" data-slide="1">Skills</div>
-        <div class="section-indicator" data-slide="2">Projects</div>
+        <!-- <div class="section-indicator" data-slide="2">Projects</div> -->
         <div class="section-indicator" data-slide="3">Experience</div>
         <div class="section-indicator" data-slide="4">Github</div>
         <div class="section-indicator" data-slide="5">Prices</div>
