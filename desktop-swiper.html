@@ -132,8 +132,10 @@
 
         /* Hide scrollbar for IE, Edge, and Firefox */
         .experience-scrollable {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
         }
 
         a:hover {
@@ -254,9 +256,12 @@
                             <h3 class="text-2xl font-semibold">Freelancer, Antonio Guiotto, Italy</h3>
                             <p class=""><em>August 2023 — Present</em></p>
                             <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Delivered complex projects independently, managing all phases from conception to deployment.</li>
-                                <li>Improved UI/UX for online businesses using advanced visual and technical skills.</li>
-                                <li>Developed custom WordPress websites with unique features tailored to client needs.</li>
+                                <li>Delivered complex projects independently, managing all phases from conception to
+                                    deployment.</li>
+                                <li>Improved UI/UX for online businesses using advanced visual and technical skills.
+                                </li>
+                                <li>Developed custom WordPress websites with unique features tailored to client needs.
+                                </li>
                                 <li>Created sophisticated 2D and 3D web animations to enhance user engagement.</li>
                             </ul>
                         </div>
@@ -266,7 +271,8 @@
                             <p class=""><em>April 2022 — February 2023</em></p>
                             <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
                                 <li>Created modern and secure web applications with React and TypeScript.</li>
-                                <li>Developed new features for onboarding websites, including a comprehensive Profile panel.</li>
+                                <li>Developed new features for onboarding websites, including a comprehensive Profile
+                                    panel.</li>
                                 <li>Managed multiple CI/CD pipelines with Bitbucket and GitLab.</li>
                                 <li>Collaborated with designers and QA team to ensure high-quality deliverables.</li>
                             </ul>
@@ -287,7 +293,8 @@
                             <h3 class="text-2xl font-semibold">Front End Developer, RED Software Systems, Milan</h3>
                             <p class=""><em>December 2018 — January 2020</em></p>
                             <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                                <li>Built e-commerce front-end platforms using Polymer.js following Agile methodologies.</li>
+                                <li>Built e-commerce front-end platforms using Polymer.js following Agile methodologies.
+                                </li>
                                 <li>Focused on high-quality code and strict procedures.</li>
                                 <li>Worked with pure JavaScript, creating internal modules and design systems.</li>
                                 <li>Collaborated effectively within a team, maintaining high code standards.</li>
@@ -296,16 +303,22 @@
                     </div>
                 </section>
             </div>
-            <div class="swiper-slide section flex flex-col items-center justify-center h-[calc(100vh-50px)] bg-gray-900 text-gray-300">
+            <div
+                class="swiper-slide section flex flex-col items-center justify-center h-[calc(100vh-50px)] bg-transparent text-gray-300">
                 <section id="github" class="container mx-auto px-4 py-12">
-                    <div class="text-center">
+                    <div class="text-center space-y-8">
                         <!-- GitHub Contribution Graph -->
-                        <div class="mb-6">
+                        <div>
                             <h3 class="text-2xl font-semibold mb-4 text-gray-100">GitHub Contribution Graph</h3>
-                            <img src="https://activity-graph.herokuapp.com/graph?username=palloncino&theme=onedark" alt="GitHub Contribution Graph of palloncino" class="mx-auto">
+                            <img src="https://ghchart.rshah.org/gray/palloncino" alt="GitHub Contribution Graph of palloncino" class="mx-auto">
+                        </div>
+                        <!-- GitHub Stats -->
+                        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                            <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=onedark&show_icons=true&hide_border=true" alt="GitHub Stats" class="max-w-md">
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=onedark&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" class="max-w-md">
                         </div>
                         <!-- Tech Badges -->
-                        <div class="mb-6 flex flex-wrap justify-center gap-4">
+                        <div class="flex flex-wrap justify-center gap-4">
                             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" class="h-10">
                             <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript" class="h-10">
                             <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white" alt="Node.js" class="h-10">
@@ -316,24 +329,60 @@
                             <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" class="h-10">
                             <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP" class="h-10">
                         </div>
-                        <!-- GitHub Stats -->
-                        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=onedark&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" class="max-w-md">
-                            <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=onedark&show_icons=true&hide_border=true" alt="GitHub Stats" class="max-w-md">
-                        </div>
                     </div>
                 </section>
             </div>
             <div class="swiper-slide section flex flex-col items-center justify-center">
                 <section id="prices" class="container">
-                    <h2>Contact</h2>
-                    <p>[Add your Prices information here]</p>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Base Information</h3>
+                            <ul class="list-disc list-inside space-y-2 text-lg">
+                                <li>Base Rate: €36/hour</li>
+                                <li>Maximum Availability: 6 hours per day, every day of the week (including weekends)</li>
+                            </ul>
+                        </div>
+        
+                        <p class="text-lg">
+                            I offer a flexible collaboration plan with a constant, unchanged rate, regardless of the employment duration. No additional interest or vacation accrual is included.
+                        </p>
+        
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Rate Details</h3>
+                            <ul class="list-disc list-inside space-y-2 text-lg">
+                                <li>Hourly Rate: €36/hour</li>
+                                <li>Daily Rate (6 hours): €216</li>
+                                <li>Weekly Rate (42 hours): €1,512</li>
+                                <li>Monthly Rate (4 weeks, 168 hours): €6,048</li>
+                            </ul>
+                        </div>
+        
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Additional Terms</h3>
+                            <ul class="list-disc list-inside space-y-2 text-lg">
+                                <li>Maximum working hours: 6 hours per day, available every day of the week</li>
+                                <li>Payment Terms: End of each month, invoiced based on actual hours worked</li>
+                                <li>Renewal: Contracts can be renewed or adapted based on new collaboration needs</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
             <div class="swiper-slide section flex flex-col items-center justify-center">
                 <section id="contact" class="container">
-                    <h2>Contact</h2>
-                    <p>[Add your Contact information here]</p>
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Get in
+                        Touch</h2>
+                    <p class="leading-relaxed text-lg mb-6">
+                        I'm currently open to new opportunities and collaborations. Feel free to reach out!
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                        <a href="mailto:powerhydratoni@gmail.com"
+                            class="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500">Email
+                            Me</a>
+                        <a href="https://www.linkedin.com/in/antonioguiotto"
+                            class="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500">Connect
+                            on LinkedIn</a>
+                    </div>
                 </section>
             </div>
         </div>
