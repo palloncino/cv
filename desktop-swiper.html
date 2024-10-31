@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Antonio Guiotto - Web Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Helvetica', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <!-- Swiper CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Full-width and full-height sections */
+        .section {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Swiper container adjustments */
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Fixed Section Indicators */
+        .section-indicators {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .section-indicator {
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 128, 128, 0.1);
+            color: teal;
+            border: 1px solid teal;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-indicator.active {
+            background-color: rgba(0, 128, 128, 0.7);
+            color: white;
+        }
+
+        .dark .section-indicator {
+            background-color: rgba(45, 212, 191, 0.1);
+            color: rgb(45, 212, 191);
+            border-color: rgb(45, 212, 191);
+        }
+
+        .dark .section-indicator.active {
+            background-color: rgba(45, 212, 191, 0.7);
+            color: white;
+        }
+    </style>
+    <!-- Theme Initialization Script -->
+    <script>
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Swiper Wrapper for Full-Page Sections -->
+    <div class="swiper-container main-swiper">
+        <div class="swiper-wrapper">
+            <!-- Combined Header and Profile Section -->
+            <div class="swiper-slide section">
+                <!-- Navigation Bar -->
+                <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+                        <a href="#" class="text-2xl font-bold">Antonio Guiotto</a>
+                        <div class="flex items-center space-x-6">
+                            <!-- Theme Toggle Button -->
+                            <button id="theme-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                                <!-- Dark Mode Icon -->
+                                <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M17.293 13.293a8 8 0 01-10.586 0 8 8 0 0110.586 0z"></path>
+                                </svg>
+                                <!-- Light Mode Icon -->
+                                <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2a.75.75 0 01.75.75v1.26a.75.75 0 01-1.5 0V2.75A.75.75 0 0112 2zm5.303 1.974a.75.75 0 011.06 1.06l-.892.892a.75.75 0 01-1.06-1.06l.892-.892zM21 11.25a.75.75 0 010 1.5h-1.26a.75.75 0 010-1.5H21zM18.303 18.303a.75.75 0 01-1.06 0l-.892-.892a.75.75 0 111.06-1.06l.892.892a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-1.26a.75.75 0 011.5 0v1.26A.75.75 0 0112 21zm-5.303-1.974a.75.75 0 01-1.06-1.06l.892-.892a.75.75 0 111.06 1.06l-.892.892zM2.75 12a.75.75 0 01.75-.75h1.26a.75.75 0 010 1.5H3.5a.75.75 0 01-.75-.75zM5.697 5.697a.75.75 0 011.06 0l.892.892a.75.75 0 11-1.06 1.06l-.892-.892a.75.75 0 010-1.06z"></path>
+                                    <path d="M12 16.25a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <section id="profile" class="container mx-auto flex flex-col items-center px-4 py-12 h-full justify-center">
+                    <img class="w-48 h-48 rounded-full object-cover border-4 border-teal-500 shadow-lg dark:border-teal-400" src="./me.jpeg" alt="Antonio Guiotto">
+                    <h1 class="text-5xl font-extrabold mt-6">Antonio Guiotto</h1>
+                    <p class="text-xl mt-2 text-teal-600 dark:text-teal-400">Experienced Web Developer</p>
+                    <p class="text-lg mt-1">Barcelona | Date of Birth: 20/03/1995</p>
+                    <div class="mt-4 flex flex-wrap justify-center space-x-6">
+                        <a href="mailto:powerhydratoni@gmail.com" class="hover:text-teal-600 dark:hover:text-teal-400">Email</a>
+                        <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-teal-600 dark:hover:text-teal-400">LinkedIn</a>
+                        <a href="https://github.com/palloncino" class="hover:text-teal-600 dark:hover:text-teal-400">GitHub</a>
+                    </div>
+                    <!-- Profile Summary -->
+                    <div class="mt-8 max-w-3xl text-center">
+                        <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Profile</h2>
+                        <p class="leading-relaxed text-lg">
+                            Experienced Software Developer specializing in Front-end and Full-stack Technologies.
+                        </p>
+                    </div>
+                </section>
+                <!-- Section Indicators -->
+                <div class="section-indicators">
+                    <div class="section-indicator active" data-slide="0">Profile</div>
+                    <div class="section-indicator" data-slide="1">Skills</div>
+                    <div class="section-indicator" data-slide="2">Projects</div>
+                    <div class="section-indicator" data-slide="3">Experience</div>
+                    <div class="section-indicator" data-slide="4">Contact</div>
+                </div>
+            </div>
+            <!-- Skills Section -->
+            <div class="swiper-slide section">
+                <section id="skills" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Skills</h2>
+                    <!-- Placeholder for Skills Content -->
+                    <p class="text-lg">[Add your skills here]</p>
+                </section>
+                <!-- Section Indicators -->
+                <div class="section-indicators">
+                    <div class="section-indicator" data-slide="0">Profile</div>
+                    <div class="section-indicator active" data-slide="1">Skills</div>
+                    <div class="section-indicator" data-slide="2">Projects</div>
+                    <div class="section-indicator" data-slide="3">Experience</div>
+                    <div class="section-indicator" data-slide="4">Contact</div>
+                </div>
+            </div>
+            <!-- Placeholder Sections -->
+            <div class="swiper-slide section">
+                <section id="projects" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Projects</h2>
+                    <!-- Placeholder for Projects Content -->
+                    <p class="text-lg">[Add your projects here]</p>
+                </section>
+                <!-- Section Indicators -->
+                <div class="section-indicators">
+                    <div class="section-indicator" data-slide="0">Profile</div>
+                    <div class="section-indicator" data-slide="1">Skills</div>
+                    <div class="section-indicator active" data-slide="2">Projects</div>
+                    <div class="section-indicator" data-slide="3">Experience</div>
+                    <div class="section-indicator" data-slide="4">Contact</div>
+                </div>
+            </div>
+            <div class="swiper-slide section">
+                <section id="experience" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Experience</h2>
+                    <!-- Placeholder for Experience Content -->
+                    <p class="text-lg">[Add your experience here]</p>
+                </section>
+                <!-- Section Indicators -->
+                <div class="section-indicators">
+                    <div class="section-indicator" data-slide="0">Profile</div>
+                    <div class="section-indicator" data-slide="1">Skills</div>
+                    <div class="section-indicator" data-slide="2">Projects</div>
+                    <div class="section-indicator active" data-slide="3">Experience</div>
+                    <div class="section-indicator" data-slide="4">Contact</div>
+                </div>
+            </div>
+            <div class="swiper-slide section">
+                <section id="contact" class="container mx-auto px-4 h-full flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
+                    <!-- Placeholder for Contact Content -->
+                    <p class="text-lg">[Add your contact information here]</p>
+                </section>
+                <!-- Section Indicators -->
+                <div class="section-indicators">
+                    <div class="section-indicator" data-slide="0">Profile</div>
+                    <div class="section-indicator" data-slide="1">Skills</div>
+                    <div class="section-indicator" data-slide="2">Projects</div>
+                    <div class="section-indicator" data-slide="3">Experience</div>
+                    <div class="section-indicator active" data-slide="4">Contact</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Theme Toggle Script -->
+    <script>
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        var darkIcon = document.getElementById('theme-toggle-dark-icon');
+        var lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Update icons based on the current theme
+        if (document.documentElement.classList.contains('dark')) {
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            // Toggle icons inside the button
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // Toggle theme and save preference in localStorage
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Initialize Main Swiper
+        var mainSwiper = new Swiper('.main-swiper', {
+            loop: false,
+            allowTouchMove: true,
+            autoplay: false
+        });
+
+        // Section Indicators
+        var sectionIndicators = document.querySelectorAll('.section-indicator');
+
+        sectionIndicators.forEach(function(indicator) {
+            indicator.addEventListener('click', function() {
+                var slideIndex = parseInt(this.getAttribute('data-slide'));
+                mainSwiper.slideTo(slideIndex);
+            });
+        });
+
+        // Update active indicator on slide change
+        mainSwiper.on('slideChange', function () {
+            var activeIndex = mainSwiper.activeIndex;
+            sectionIndicators.forEach(function(indicator) {
+                indicator.classList.remove('active');
+                if (parseInt(indicator.getAttribute('data-slide')) === activeIndex) {
+                    indicator.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
