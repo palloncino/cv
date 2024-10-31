@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Antonio Guiotto - Web Developer</title>
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lexend:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -69,6 +74,15 @@
                 text-decoration: none;
             }
         }
+
+        .instaplug-widget-wrapper .post-footer,
+        .instaplug-widget-wrapper .post-header,
+        .instaplug-widget-wrapper .slick-prev,
+        .instaplug-widget-wrapper .slick-next,
+        .instaplug-watermark,
+        [class*="slider absolute"] {
+            display: none !important;
+        }
     </style>
     <!-- Theme Initialization Script -->
     <script>
@@ -81,6 +95,21 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+    </script>
+    <!-- Instaplug Script -->
+    <script async src="https://app.instaplug.app/platform/instaplug.js" 
+        onload='
+            window.renderApp({
+                "containerId": "f7796853-cc87-4e6f-ac6a-4bf96e14c752",
+                "domain": "https://app.instaplug.app/",
+                "widgetClass": "",
+                "fontFamily": "",
+                "color": "",
+                "colorLink": "",
+                "colorLinkActive": "",
+                "colorLinkHover": ""
+            });
+        '>
     </script>
 </head>
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
@@ -313,6 +342,12 @@
                 <a href="https://www.linkedin.com/in/antonioguiotto" class="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500">Connect on LinkedIn</a>
             </div>
         </section>
+
+        <!-- Instaplug Widget Section -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Instagram Feed</h2>
+            <div id="f7796853-cc87-4e6f-ac6a-4bf96e14c752"></div>
+        </section>
     </main>
 
     <!-- Footer (Will be hidden in print) -->
@@ -537,5 +572,7 @@
         generateProjectsData();
         updateProjects();
     </script>
+    <!-- Add this where you want the Instaplug widget to appear -->
+    <div id="f7796853-cc87-4e6f-ac6a-4bf96e14c752"></div>
 </body>
 </html>
