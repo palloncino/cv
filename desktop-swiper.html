@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Antonio Guiotto - Web Developer</title>
@@ -12,27 +13,34 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Helvetica', 'sans-serif'],
+                        sans: ['Poppins', 'sans-serif'],
                     },
+                    colors: {
+                        'strong-orange': '#ffb300',
+                        'strong-black': '#000000',
+                        'strong-white': '#FFFFFF'
+                    },
+                    maxWidth: {
+                        'container': '1400px'
+                    }
                 },
             },
         };
     </script>
     <!-- Swiper CSS CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <style>
-        body {
-            font-family: 'Helvetica', sans-serif;
-            margin: 0;
-            overflow: hidden;
+        /* Import custom font */
+        @font-face {
+            font-family: 'Poppins';
+            src: url('./media/Poppins-Regular.ttf') format('truetype');
         }
 
-        nav {
-            visibility: hidden;
-            height: 0;
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            color: #FFF;
         }
 
         /* Full-width and full-height sections */
@@ -40,6 +48,33 @@
             width: 100vw;
             height: 100vh;
             position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1, h2, p, a {
+            color: #ffb300;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            border-bottom: 4px solid #000000;
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
         }
 
         /* Swiper container adjustments */
@@ -60,116 +95,102 @@
         }
 
         .section-indicator {
-            padding: 0.5rem 1rem;
-            background-color: rgba(0, 128, 128, 0.1);
-            color: teal;
-            border: 1px solid teal;
+            padding: 0.75rem 1.5rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 3px solid #000000;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 700;
         }
 
         .section-indicator.active {
-            background-color: rgba(0, 128, 128, 0.7);
-            color: white;
+            background-color: #ffb300;
+            color: #000;
         }
 
-        .dark .section-indicator {
-            background-color: rgba(45, 212, 191, 0.1);
-            color: rgb(45, 212, 191);
-            border-color: rgb(45, 212, 191);
-        }
-
-        .dark .section-indicator.active {
-            background-color: rgba(45, 212, 191, 0.7);
-            color: white;
+        nav {
+            visibility: hidden;
+            height: 0;
         }
     </style>
-    <!-- Theme Initialization Script -->
-    <script>
-        if (
-            localStorage.getItem('color-theme') === 'dark' ||
-            (!('color-theme' in localStorage) &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
 </head>
-<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+<body class="text-strong-white">
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+        <source src="./media/drone-jungle.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
     <!-- Swiper Wrapper for Full-Page Sections -->
     <div class="swiper-container main-swiper">
         <div class="swiper-wrapper">
             <!-- Profile Section -->
-            <div class="swiper-slide section">
-                <!-- Navigation Bar -->
-                <nav class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <div class="container mx-auto flex items-center justify-between px-4 py-4">
-                        <a href="#" class="text-2xl font-bold">Antonio Guiotto</a>
-                        <div class="flex items-center space-x-6">
-                            <!-- Theme Toggle Button -->
-                            <button id="theme-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
-                                <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M17.293 13.293a8 8 0 01-10.586 0 8 8 0 0110.586 0z"></path>
-                                </svg>
-                                <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2a.75.75 0 01.75.75v1.26a.75.75 0 01-1.5 0V2.75A.75.75 0 0112 2zm5.303 1.974a.75.75 0 011.06 1.06l-.892.892a.75.75 0 01-1.06-1.06l.892-.892zM21 11.25a.75.75 0 010 1.5h-1.26a.75.75 0 010-1.5H21zM18.303 18.303a.75.75 0 01-1.06 0l-.892-.892a.75.75 0 111.06-1.06l.892.892a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-1.26a.75.75 0 011.5 0v1.26A.75.75 0 0112 21zm-5.303-1.974a.75.75 0 01-1.06-1.06l.892-.892a.75.75 0 111.06 1.06l-.892.892zM2.75 12a.75.75 0 01.75-.75h1.26a.75.75 0 010 1.5H3.5a.75.75 0 01-.75-.75zM5.697 5.697a.75.75 0 011.06 0l.892.892a.75.75 0 11-1.06 1.06l-.892-.892a.75.75 0 010-1.06z"></path>
-                                    <path d="M12 16.25a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5z"></path>
-                                </svg>
-                            </button>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="profile" class="container">
+                    <div class="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-start">
+                        <div class=" mb-6 lg:mb-0 lg:mr-12">
+                            <img class="w-48 h-48 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-strong-black shadow-lg"
+                                src="./me.jpeg" alt="Antonio Guiotto">
                         </div>
-                    </div>
-                </nav>
-                <section id="profile" class="container mx-auto flex flex-col items-center px-4 py-12 h-full justify-center">
-                    <img class="w-48 h-48 rounded-full object-cover border-4 border-teal-500 shadow-lg dark:border-teal-400" src="./me.jpeg" alt="Antonio Guiotto">
-                    <h1 class="text-5xl font-extrabold mt-6">Antonio Guiotto</h1>
-                    <p class="text-xl mt-2 text-teal-600 dark:text-teal-400">Experienced Web Developer</p>
-                    <p class="text-lg mt-1">Barcelona | Date of Birth: 20/03/1995</p>
-                    <div class="mt-4 flex flex-wrap justify-center space-x-6">
-                        <a href="mailto:powerhydratoni@gmail.com" class="hover:text-teal-600 dark:hover:text-teal-400">Email</a>
-                        <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-teal-600 dark:hover:text-teal-400">LinkedIn</a>
-                        <a href="https://github.com/palloncino" class="hover:text-teal-600 dark:hover:text-teal-400">GitHub</a>
+                        <div class="flex-1 text-center lg:text-left">
+                            <h1>Antonio Guiotto</h1>
+                            <p class="text-2xl mt-2 text-strong-orange">Experienced Web Developer</p>
+                            <p class="text-lg mt-1">Italian, Date of Birth: 20/03/1995</p>
+                            <div class="mt-4 flex flex-wrap justify-center lg:justify-start space-x-6">
+                                <a href="mailto:powerhydratoni@gmail.com" class="hover:text-strong-orange">Email</a>
+                                <a href="https://www.linkedin.com/in/antonioguiotto" class="hover:text-strong-orange">LinkedIn</a>
+                                <a href="https://github.com/palloncino" class="hover:text-strong-orange">GitHub</a>
+                            </div>
+                            <div class="mt-4 max-w-lg">
+                                Experienced Software Developer specializing in Front-end and Full-stack Technologies, with a passion for delivering high-quality, efficient, and scalable solutions.
+                            </div>
+                            
+                        </div>
                     </div>
                 </section>
             </div>
+
             <!-- Skills Section -->
-            <div class="swiper-slide section">
-                <section id="skills" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Skills</h2>
-                    <p class="text-lg">[Add your skills here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="skills" class="container">
+                    <h2>Skills</h2>
+                    <p>[Add your skills here]</p>
                 </section>
             </div>
             <!-- Placeholder Sections for Projects, Experience, Contact -->
-            <div class="swiper-slide section">
-                <section id="projects" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Projects</h2>
-                    <p class="text-lg">[Add your projects here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="projects" class="container">
+                    <h2>Projects</h2>
+                    <p>[Add your projects here]</p>
                 </section>
             </div>
-            <div class="swiper-slide section">
-                <section id="experience" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Experience</h2>
-                    <p class="text-lg">[Add your experience here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="experience" class="container">
+                    <h2>Experience</h2>
+                    <p>[Add your experience here]</p>
                 </section>
             </div>
-            <div class="swiper-slide section">
-                <section id="github" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
-                    <p class="text-lg">[Add your Github information here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="github" class="container">
+                    <h2>Contact</h2>
+                    <p>[Add your Github information here]</p>
                 </section>
             </div>
-            <div class="swiper-slide section">
-                <section id="prices" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
-                    <p class="text-lg">[Add your Prices information here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="prices" class="container">
+                    <h2>Contact</h2>
+                    <p>[Add your Prices information here]</p>
                 </section>
             </div>
-            <div class="swiper-slide section">
-                <section id="contact" class="container mx-auto px-4 h-full flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Contact</h2>
-                    <p class="text-lg">[Add your Contact information here]</p>
+            <div class="swiper-slide section flex flex-col items-center justify-center">
+                <section id="contact" class="container">
+                    <h2>Contact</h2>
+                    <p>[Add your Contact information here]</p>
                 </section>
             </div>
         </div>
@@ -190,40 +211,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Theme Toggle Script -->
     <script>
-        var themeToggleBtn = document.getElementById('theme-toggle');
-        var darkIcon = document.getElementById('theme-toggle-dark-icon');
-        var lightIcon = document.getElementById('theme-toggle-light-icon');
-
-        if (document.documentElement.classList.contains('dark')) {
-            lightIcon.classList.remove('hidden');
-        } else {
-            darkIcon.classList.remove('hidden');
-        }
-
-        themeToggleBtn.addEventListener('click', function () {
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
-        });
-
-        // Initialize Main Swiper
+        // Initialize Swiper
         var mainSwiper = new Swiper('.main-swiper', {
             loop: false,
             allowTouchMove: true,
@@ -231,25 +219,19 @@
         });
 
         // Section Indicators
-        var sectionIndicators = document.querySelectorAll('.section-indicator');
-
-        sectionIndicators.forEach(function(indicator) {
-            indicator.addEventListener('click', function() {
-                var slideIndex = parseInt(this.getAttribute('data-slide'));
-                mainSwiper.slideTo(slideIndex);
+        document.querySelectorAll('.section-indicator').forEach(function (indicator, index) {
+            indicator.addEventListener('click', function () {
+                mainSwiper.slideTo(index);
             });
         });
 
         // Update active indicator on slide change
         mainSwiper.on('slideChange', function () {
-            var activeIndex = mainSwiper.activeIndex;
-            sectionIndicators.forEach(function(indicator) {
-                indicator.classList.remove('active');
-                if (parseInt(indicator.getAttribute('data-slide')) === activeIndex) {
-                    indicator.classList.add('active');
-                }
+            document.querySelectorAll('.section-indicator').forEach(function (indicator, index) {
+                indicator.classList.toggle('active', index === mainSwiper.activeIndex);
             });
         });
     </script>
 </body>
+
 </html>
