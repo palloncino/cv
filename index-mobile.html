@@ -239,10 +239,11 @@
 
         <!-- Notable Projects with Swiper -->
         <section id="projects" class="container mx-auto px-4 mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">Notable
-                Projects</h2>
+            <h2 class="text-2xl md:text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">
+                Notable Projects
+            </h2>
             <!-- Swiper Container for Projects -->
-            <div class="swiper-container projects-swiper">
+            <div class="swiper-container projects-swiper overflow-hidden">
                 <div class="swiper-wrapper">
                     <!-- Project Slides will be injected here -->
                 </div>
@@ -487,37 +488,6 @@
         navToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        // Initialize Swiper sliders
-        function initializeSwipers() {
-            // Initialize Projects Swiper
-            var projectsSwiper = new Swiper('.projects-swiper', {
-                loop: false,
-                slidesPerView: 1,
-                pagination: {
-                    el: '.projects-swiper .swiper-pagination',
-                    clickable: true,
-                },
-            });
-
-            // Initialize Images Swipers
-            var imagesSwipers = document.querySelectorAll('.images-swiper');
-            imagesSwipers.forEach(function (container) {
-                new Swiper(container, {
-                    loop: true,
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: true,
-                    },
-                    pagination: {
-                        el: container.querySelector('.swiper-pagination'),
-                        clickable: true,
-                    },
-                    nested: true, // Important for nested Swipers
-                });
-            });
-        }
-
         // Projects Data
         var projectsData = [];
 
@@ -577,7 +547,7 @@
 
             projectsData.forEach(function (project) {
                 var projectSlide = document.createElement('div');
-                projectSlide.className = 'swiper-slide';
+                projectSlide.className = 'swiper-slide w-full';
 
                 var projectContent = `
             <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
@@ -585,18 +555,20 @@
                     <!-- Project Description -->
                     <div>
                         <h3 class="text-xl md:text-2xl font-semibold mb-2">${project.title}</h3>
-                        <p class="text-teal-600 mb-2 dark:text-teal-400"><strong>Technologies:</strong> ${project.technologies}</p>
+                        <p class="text-teal-600 mb-2 dark:text-teal-400">
+                            <strong>Technologies:</strong> ${project.technologies}
+                        </p>
                         <p class="leading-relaxed text-base md:text-lg">
                             ${project.description}
                         </p>
                     </div>
                     <!-- Swiper Slider for Images -->
                     <div>
-                        <div class="swiper-container images-swiper">
+                        <div class="swiper-container images-swiper overflow-hidden">
                             <div class="swiper-wrapper">
                                 ${project.images.map(image => `
-                                    <div class="swiper-slide">
-                                        <img src="${image}" alt="Project Image" class="w-full h-full object-cover rounded-md">
+                                    <div class="swiper-slide w-full">
+                                        <img src="${image}" alt="Project Image" class="w-full h-auto object-cover rounded-md">
                                     </div>
                                 `).join('')}
                             </div>
@@ -616,6 +588,41 @@
             initializeSwipers();
         }
 
+        // Initialize Swiper sliders
+        function initializeSwipers() {
+            // Initialize Projects Swiper
+            new Swiper('.projects-swiper', {
+                loop: false,
+                slidesPerView: 1,
+                centeredSlides: true,
+                spaceBetween: 0,
+                pagination: {
+                    el: '.projects-swiper .swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            // Initialize Images Swipers
+            var imagesSwipers = document.querySelectorAll('.images-swiper');
+            imagesSwipers.forEach(function (container) {
+                new Swiper(container, {
+                    loop: true,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    spaceBetween: 0,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: true,
+                    },
+                    pagination: {
+                        el: container.querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                    nested: true, // Important for nested Swipers
+                });
+            });
+        }
+        
         // Initialize the projects on page load
         generateProjectsData();
         renderProjects();
