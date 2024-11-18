@@ -80,6 +80,13 @@
         [class*="slider absolute"] {
             display: none !important;
         }
+
+        .instaplug-widget-wrapper .user-full-name span {
+            color: white!important;
+        }
+        .instaplug-widget-wrapper .rounded-s {
+            border: 1px solid white;
+        }
     </style>
     <!-- Theme Initialization Script -->
     <script>
@@ -327,7 +334,18 @@
         </section>
 
         <!-- GitHub & Open Source -->
-        <section class="container mx-auto px-4 mb-12">
+        <style>
+            .github-snippet {
+                overflow-x: auto;
+                white-space: nowrap;
+                font-family: monospace;
+                padding: 1rem;
+
+                border-radius: 5px;
+                max-width: 100%;
+            }
+        </style>
+        <section class="container mx-auto px-4 mb-12 overflow-x-hidden">
             <h2 class="text-2xl md:text-3xl font-bold border-b-2 border-teal-500 pb-2 mb-6 dark:border-teal-400">GitHub
                 & Open Source</h2>
             <div class="text-center">
@@ -337,33 +355,74 @@
                     <img src="https://ghchart.rshah.org/gray/palloncino" alt="GitHub Contribution Graph of palloncino"
                         class="mx-auto">
                 </div>
-                <!-- Tech Badges -->
-                <div class="mb-6 flex flex-wrap justify-center gap-4">
-                    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"
-                        alt="JavaScript" class="h-10">
-                    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
-                        alt="TypeScript" class="h-10">
-                    <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white"
-                        alt="Node.js" class="h-10">
-                    <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
-                        alt="React.js" class="h-10">
-                    <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white"
-                        alt="Angular" class="h-10">
-                    <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white"
-                        alt="AWS" class="h-10">
-                    <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"
-                        alt="Docker" class="h-10">
-                    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
-                        alt="Python" class="h-10">
-                    <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP"
-                        class="h-10">
-                </div>
+                
                 <!-- GitHub Stats -->
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=default&show_icons=true&hide_border=true&layout=compact"
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=palloncino&theme=radical&show_icons=true&hide_border=true&layout=compact"
                         alt="Top Languages" class="max-w-md">
-                    <img src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=default&show_icons=true&hide_border=true"
+                    <img style="transform: scale(.8)" src="https://github-readme-stats.vercel.app/api?username=palloncino&theme=radical&show_icons=true&hide_border=true"
                         alt="GitHub Stats" class="max-w-md">
+                </div>
+
+                <!-- Tech Badges -->
+                <style>
+                    .marquee {
+                        width: 100%;
+                        position: relative;
+                        animation: marquee 60s linear infinite;
+                    }
+
+                    @keyframes marquee {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-1000%); }
+                    }
+
+                    .marquee-content {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        gap: 1rem;
+                    }
+                </style>
+                <div class="mt-6 mb-4 flex flex-wrap justify-center items-center space-x-2 gap-2 whitespace-nowrap marquee">
+                    <div class="marquee-content">
+                        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"
+                            alt="JavaScript" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
+                            alt="TypeScript" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white"
+                            alt="Node.js" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
+                            alt="React.js" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white"
+                            alt="Angular" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white"
+                            alt="AWS" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"
+                            alt="Docker" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
+                            alt="Python" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP"
+                            style="height: 2.4rem;">
+                        <!-- Duplicate the content to create the illusion of infinite scrolling -->
+                        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"
+                            alt="JavaScript" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
+                            alt="TypeScript" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white"
+                            alt="Node.js" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
+                            alt="React.js" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white"
+                            alt="Angular" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazon-aws&logoColor=white"
+                            alt="AWS" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"
+                            alt="Docker" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
+                            alt="Python" style="height: 2.4rem;">
+                        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP"
+                            style="height: 2.4rem;">
+                    </div>
                 </div>
             </div>
         </section>
@@ -402,7 +461,6 @@
                     <h3 class="text-xl md:text-2xl font-semibold mb-2">Base Information</h3>
                     <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
                         <li>Base Rate: €36/hour</li>
-                        <li>Maximum Availability: 6 hours per day, every day of the week (including weekends)</li>
                     </ul>
                 </div>
 
@@ -424,7 +482,6 @@
                 <div>
                     <h3 class="text-xl md:text-2xl font-semibold mb-2">Additional Terms</h3>
                     <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
-                        <li>Maximum working hours: 6 hours per day, available every day of the week</li>
                         <li>Payment Terms: End of each month, invoiced based on actual hours worked</li>
                         <li>Renewal: Contracts can be renewed or adapted based on new collaboration needs</li>
                     </ul>
