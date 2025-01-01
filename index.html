@@ -1,26 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to detect if the user is on a mobile device
-            function isMobile() {
-                return /Mobi|Android/i.test(navigator.userAgent);
-            }
+    <title>Connect With Me</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #dcdcdc;
+            font-family: Arial, sans-serif;
+        }
 
-            // Redirect based on device type
-            if (isMobile()) {
-                window.location.href = "/cv/index-mobile.html";
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        .social-button {
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid rgb(117, 117, 117);
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .social-button:hover {
+            transform: scale(1.02);
+        }
+
+        .social-button i {
+            margin-right: 10px;
+        }
+
+        .instagram {
+            background: #ffffff;
+        }
+
+        .instagram2 {
+            background: #ffffff;
+        }
+
+        .linkedin {
+            background: #ffffff;
+        }
+
+        .whatsapp {
+            background: #ffffff;
+        }
+
+        .cv {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="social-buttons">
+        <h4>Instagram</h4>
+        <a href="https://instagram.com/antonio_guiotto" class="social-button instagram">
+            <i class="fab fa-instagram"></i>
+            Personal profile
+        </a>
+        <a href="https://instagram.com/black_combat_design" class="social-button instagram2">
+            <i class="fab fa-instagram"></i>
+            black_combat_design
+        </a>
+        
+        <h4>Software</h4>
+        <a href="https://linkedin.com/in/antonioguiotto" class="social-button linkedin">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+        </a>
+        <a href="#" class="social-button cv" id="cv-button">
+            <i class="fas fa-file-alt"></i>
+            History and Services
+        </a>
+        
+        <h4>Contacts</h4>
+        <a href="https://wa.me/00393474943221" class="social-button whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('cv-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                window.location.href = "/cv-mobile.html";
             } else {
-                window.location.href = "/cv/index-desktop.html";
+                window.location.href = "/cv-desktop.html";
             }
         });
     </script>
-</head>
-<body>
-    <p>Redirecting...</p>
 </body>
+
 </html>
