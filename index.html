@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect With Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -15,59 +18,93 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #dcdcdc;
-            font-family: Arial, sans-serif;
+            background-color: #ffe2a0;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #333;
         }
 
         .social-buttons {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
             width: 90%;
-            max-width: 300px;
+            max-width: 320px;
+            padding: 24px;
+        }
+
+        h4 {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: #333;
+            margin: 8px 0;
+            width: 100%;
         }
 
         .social-button {
-            
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 15px 20px;
-            border-radius: 10px;
-            border: 2px solid rgb(117, 117, 117);
-            color: black;
-            font-size: 18px;
+            justify-content: flex-start;
+            padding: 16px 24px;
+            background: #fff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
         }
 
         .social-button:hover {
-            transform: scale(1.02);
+            background: #333;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .social-button:hover i {
+            color: #fff;
+        }
+
+        .social-button:active {
+            background: #444;
+            transform: translateY(0);
         }
 
         .social-button i {
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+            transition: color 0.2s ease;
         }
 
-        .instagram {
-            background: #ffffff;
+        .instagram i,
+        .instagram2 i,
+        .linkedin i,
+        .whatsapp i,
+        .cv i { 
+            color: #333;
         }
 
-        .instagram2 {
-            background: #ffffff;
-        }
+        @media (max-width: 480px) {
+            .social-buttons {
+                padding: 20px;
+                gap: 12px;
+            }
 
-        .linkedin {
-            background: #ffffff;
-        }
-
-        .whatsapp {
-            background: #ffffff;
-        }
-
-        .cv {
-            background: #ffffff;
+            .social-button {
+                padding: 14px 20px;
+            }
         }
     </style>
 </head>
@@ -75,17 +112,17 @@
 <body>
     <div class="social-buttons">
         <h4>Instagram</h4>
-        <a href="https://instagram.com/antonio_guiotto" class="social-button instagram">
+        <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
             <i class="fab fa-instagram"></i>
             Personal profile
         </a>
-        <a href="https://instagram.com/black_combat_design" class="social-button instagram2">
+        <a href="#" class="social-button instagram" data-url="https://instagram.com/black_combat_design">
             <i class="fab fa-instagram"></i>
             black_combat_design
         </a>
         
         <h4>Software</h4>
-        <a href="https://linkedin.com/in/antonioguiotto" class="social-button linkedin">
+        <a href="#" class="social-button linkedin" data-url="https://linkedin.com/in/antonioguiotto">
             <i class="fab fa-linkedin"></i>
             LinkedIn
         </a>
@@ -95,20 +132,31 @@
         </a>
         
         <h4>Contacts</h4>
-        <a href="https://wa.me/00393474943221" class="social-button whatsapp">
+        <a href="#" class="social-button whatsapp" data-url="https://wa.me/393474943221">
             <i class="fab fa-whatsapp"></i>
             WhatsApp
         </a>
     </div>
 
     <script>
-        document.getElementById('cv-button').addEventListener('click', function (e) {
-            e.preventDefault();
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                window.location.href = "/cv-mobile.html";
-            } else {
-                window.location.href = "/cv-desktop.html";
-            }
+        // Handle all social links
+        document.querySelectorAll('.social-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Special handling for CV button
+                if (this.id === 'cv-button') {
+                    const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv-mobile.html' : '/cv-desktop.html';
+                    window.open(path, '_blank');
+                    return;
+                }
+
+                // Handle all other social links
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
         });
     </script>
 </body>
