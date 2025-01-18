@@ -1,181 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect With Me</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Additional Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lexend:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #ffe2a0;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect With Me — 2025 Style</title>
 
-        .social-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            width: 90%;
-            max-width: 320px;
-            padding: 24px;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" 
+    rel="stylesheet"
+  />
+  
+  <!-- Font Awesome CDN -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
 
-        h4 {
-            margin: 8px 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+  <style>
+    /***********************************************
+     * 1. BASIC RESET & GLOBAL STYLES
+     ***********************************************/
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        hr {
-            border: none;
-            height: 2px;
-            background: #333;
-            margin: 8px 0;
-            width: 100%;
-        }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #fff;
+      overflow: hidden; /* keep body from scrolling if we want a full viewport effect */
+    }
 
-        .social-button {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 16px 24px;
-            background: #fff;
-            border: 2px solid #333;
-            border-radius: 8px;
-            color: #333;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+    /***********************************************
+     * 2. BACKGROUND — ANIMATED GRADIENT
+     ***********************************************/
+    body {
+      background: linear-gradient(-45deg, #ff0178, #5f00ff, #00bbff, #00ff78);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        .social-button:hover {
-            background: #333;
-            color: #fff;
-            transform: translateY(-1px);
-        }
+    /***********************************************
+     * 3. CONTAINER WITH GLASSMORPHIC EFFECT
+     ***********************************************/
+    .social-buttons {
+      width: 90%;
+      max-width: 320px;
+      padding: 24px;
+      
+      /* Glass effect background & blur */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
 
-        .social-button:hover i {
-            color: #fff;
-        }
+      /* border: 1px solid rgba(255, 255, 255, 0.2); */
+      border-radius: 12px;
 
-        .social-button:active {
-            background: #444;
-            transform: translateY(0);
-        }
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
-        .social-button i {
-            margin-right: 12px;
-            font-size: 20px;
-            width: 24px;
-            text-align: center;
-            transition: color 0.2s ease;
-        }
+      position: relative;
+    }
 
-        .instagram i,
-        .instagram2 i,
-        .linkedin i,
-        .whatsapp i,
-        .cv i { 
-            color: #333;
-        }
+    /***********************************************
+     * 4. TITLES & DIVIDERS
+     ***********************************************/
+    h4 {
+      margin: 8px 0 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      opacity: 0.9;
+      position: relative;
+    }
 
-        @media (max-width: 480px) {
-            .social-buttons {
-                padding: 20px;
-                gap: 12px;
-            }
+    hr {
+      border: none;
+      height: 2px;
+      /* background: rgba(255, 255, 255, 0.5); */
+      margin: 0 0 8px;
+    }
 
-            .social-button {
-                padding: 14px 20px;
-            }
-        }
-    </style>
+    /***********************************************
+     * 5. SOCIAL BUTTON STYLES — NEON GLOW ON HOVER
+     ***********************************************/
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 16px 24px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      /* Smooth hover transitions */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    /* Neon glow on hover */
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .social-button:hover i {
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .social-button:active {
+      transform: translateY(0);
+    }
+
+    /* Icon spacing & sizing */
+    .social-button i {
+      margin-right: 12px;
+      font-size: 20px;
+      width: 24px;
+      text-align: center;
+    }
+
+    /* Optional different icon colors — but you can keep them white if you want a uniform look */
+    .instagram i,
+    .instagram2 i,
+    .linkedin i,
+    .whatsapp i,
+    .cv i {
+      color: #ffffffcc;
+    }
+
+    /***********************************************
+     * 6. RESPONSIVE
+     ***********************************************/
+    @media (max-width: 480px) {
+      .social-buttons {
+        width: 85%;
+        padding: 16px;
+        gap: 12px;
+      }
+      .social-button {
+        padding: 14px 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="social-buttons">
-        <h4>Instagram</h4>
-        <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
-            <i class="fab fa-instagram"></i>
-            Personal profile
-        </a>
-        <a href="#" class="social-button instagram" data-url="https://instagram.com/black_combat_design">
-            <i class="fab fa-instagram"></i>
-            black_combat_design
-        </a>
+  <div class="social-buttons">
+    <h4>Instagram</h4>
+    <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
+      <i class="fab fa-instagram"></i>
+      Personal profile
+    </a>
+    <a href="#" class="social-button instagram2" data-url="https://instagram.com/black_combat_design">
+      <i class="fab fa-instagram"></i>
+      black_combat_design
+    </a>
+    <hr />
+    <h4>Software</h4>
+    <a href="#" class="social-button linkedin" data-url="https://linkedin.com/in/antonioguiotto">
+      <i class="fab fa-linkedin"></i>
+      LinkedIn
+    </a>
+    <a href="#" class="social-button cv" id="cv-button">
+      <i class="fas fa-file-alt"></i>
+      History and Services
+    </a>
+    <hr />
+    <h4>Contacts</h4>
+    <a href="#" class="social-button whatsapp" data-url="https://wa.me/393474943221">
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // Handle all social links
+    document.querySelectorAll('.social-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        <h4>Software</h4>
-        <a href="#" class="social-button linkedin" data-url="https://linkedin.com/in/antonioguiotto">
-            <i class="fab fa-linkedin"></i>
-            LinkedIn
-        </a>
-        <a href="#" class="social-button cv" id="cv-button">
-            <i class="fas fa-file-alt"></i>
-            History and Services
-        </a>
-        
-        <h4>Contacts</h4>
-        <a href="#" class="social-button whatsapp" data-url="https://wa.me/393474943221">
-            <i class="fab fa-whatsapp"></i>
-            WhatsApp
-        </a>
-    </div>
+        // Special handling for CV button
+        if (this.id === 'cv-button') {
+          const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv/cv-mobile.html' : '/cv/cv-desktop.html';
+          window.open(path, '_blank');
+          return;
+        }
 
-    <!-- Instaplug Container -->
-    <script async src="https://app.instaplug.app/platform/instaplug.js" onload='
-        window.renderApp({
-            "containerId": "eb1fb5a1-7c57-4d07-abfd-16cedbe16827",
-            "domain": "https://app.instaplug.app/",
-            "widgetClass": "",
-            "fontFamily": "",
-            "color": "",
-            "colorLink": "",
-            "colorLinkActive": "",
-            "colorLinkHover": ""
-        });
-    '></script>
-    <div id="eb1fb5a1-7c57-4d07-abfd-16cedbe16827"></div>
-
-    <script>
-        // Handle all social links
-        document.querySelectorAll('.social-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Special handling for CV button
-                if (this.id === 'cv-button') {
-                    const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv/cv-mobile.html' : '/cv/cv-desktop.html';
-                    window.open(path, '_blank');
-                    return;
-                }
-
-                // Handle all other social links
-                const url = this.getAttribute('data-url');
-                if (url) {
-                    window.open(url, '_blank', 'noopener,noreferrer');
-                }
-            });
-        });
-    </script>
+        // Handle all other social links
+        const url = this.getAttribute('data-url');
+        if (url) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
