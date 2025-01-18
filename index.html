@@ -146,7 +146,7 @@
                 
                 // Special handling for CV button
                 if (this.id === 'cv-button') {
-                    const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv-mobile.html' : '/cv-desktop.html';
+                    const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv/cv-mobile.html' : '/cv/cv-desktop.html';
                     window.open(path, '_blank');
                     return;
                 }
