@@ -19,6 +19,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 
+  <!-- Additional Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lexend:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+
   <style>
     /***********************************************
      * 1. BASIC RESET & GLOBAL STYLES
@@ -34,10 +37,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 20px;
       font-family: 'Space Grotesk', sans-serif;
       color: #fff;
-      overflow: hidden; /* keep body from scrolling if we want a full viewport effect */
+      overflow: hidden;
     }
 
     /***********************************************
@@ -62,11 +66,9 @@
       max-width: 320px;
       padding: 24px;
       
-      /* Glass effect background & blur */
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      /* border: 1px solid rgba(255, 255, 255, 0.2); */
       border-radius: 12px;
 
       display: flex;
@@ -93,7 +95,6 @@
     hr {
       border: none;
       height: 2px;
-      /* background: rgba(255, 255, 255, 0.5); */
       margin: 0 0 8px;
     }
 
@@ -115,11 +116,9 @@
       position: relative;
       border: 1px solid rgba(255, 255, 255, 0.2);
 
-      /* Smooth hover transitions */
       transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
 
-    /* Neon glow on hover */
     .social-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
@@ -134,7 +133,6 @@
       transform: translateY(0);
     }
 
-    /* Icon spacing & sizing */
     .social-button i {
       margin-right: 12px;
       font-size: 20px;
@@ -142,7 +140,6 @@
       text-align: center;
     }
 
-    /* Optional different icon colors — but you can keep them white if you want a uniform look */
     .instagram i,
     .instagram2 i,
     .linkedin i,
@@ -193,22 +190,27 @@
       <i class="fab fa-whatsapp"></i>
       WhatsApp
     </a>
+    <hr />
+    <h4>Downloads</h4>
+    <a href="./media/cv-2025.pdf" class="social-button" download>
+      <i class="fas fa-download"></i>
+      Download CV
+    </a>
   </div>
 
   <script>
-    // Handle all social links
     document.querySelectorAll('.social-button').forEach(button => {
       button.addEventListener('click', function(e) {
+        if (this.hasAttribute('download')) return;
+        
         e.preventDefault();
         
-        // Special handling for CV button
         if (this.id === 'cv-button') {
-          const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv/cv-mobile.html' : '/cv/cv-desktop.html';
+          const path = /Mobi|Android/i.test(navigator.userAgent) ? '/cv-mobile.html' : '/cv-desktop.html';
           window.open(path, '_blank');
           return;
         }
 
-        // Handle all other social links
         const url = this.getAttribute('data-url');
         if (url) {
           window.open(url, '_blank', 'noopener,noreferrer');
