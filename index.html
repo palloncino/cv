@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Connect With Me — 2025 Style</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Using Roboto for a cleaner, modern look -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link 
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" 
     rel="stylesheet"
   />
-  
+
   <!-- Font Awesome CDN -->
   <link 
     rel="stylesheet" 
@@ -38,19 +38,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 20px;
-      font-family: 'Space Grotesk', sans-serif;
+      padding-top: 15px;
+      font-family: 'Roboto', sans-serif;
       color: #fff;
-      overflow: hidden;
-    }
-
-    /***********************************************
-     * 2. BACKGROUND — ANIMATED GRADIENT
-     ***********************************************/
-    body {
-      background: linear-gradient(-45deg, #ff0178, #5f00ff, #00bbff, #00ff78);
+      /* Animated Gradient Background */
+      background: linear-gradient(-45deg, #ff0178, #00bbff, #00ff78);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      animation: gradientBG 5s ease infinite;
     }
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
@@ -59,22 +53,42 @@
     }
 
     /***********************************************
+     * 2. PROFILE SECTION
+     ***********************************************/
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .profile-pic {
+      width: 70px; /* Increased from 60px to 70px */
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-bottom: 4px;
+    }
+    .profile h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /***********************************************
      * 3. CONTAINER WITH GLASSMORPHIC EFFECT
      ***********************************************/
     .social-buttons {
       width: 90%;
       max-width: 320px;
-      padding: 24px;
+      padding: 16px;
       
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-
       border-radius: 12px;
-
+      /* Removed box-shadow */
       display: flex;
       flex-direction: column;
-      gap: 16px;
-
+      gap: 10px;
       position: relative;
     }
 
@@ -82,11 +96,11 @@
      * 4. TITLES & DIVIDERS
      ***********************************************/
     h4 {
-      margin: 8px 0 4px;
-      font-size: 1rem;
-      font-weight: 600;
+      margin: 4px 0 2px;
+      font-size: 0.9rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: #fff;
       opacity: 0.9;
       position: relative;
@@ -94,39 +108,35 @@
 
     hr {
       border: none;
-      height: 2px;
-      margin: 0 0 8px;
+      height: 1px;
+      margin: 0 0 6px;
+      background: rgba(255,255,255,0.4);
     }
 
     /***********************************************
-     * 5. SOCIAL BUTTON STYLES — NEON GLOW ON HOVER
+     * 5. SOCIAL BUTTON STYLES – NO BOX SHADOWS
      ***********************************************/
     .social-button {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 16px 24px;
+      padding: 10px 16px;
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       position: relative;
       border: 1px solid rgba(255, 255, 255, 0.2);
 
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .social-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.3);
-    }
-
-    .social-button:hover i {
-      text-shadow: 0 0 10px #fff;
     }
 
     .social-button:active {
@@ -134,9 +144,9 @@
     }
 
     .social-button i {
-      margin-right: 12px;
-      font-size: 20px;
-      width: 24px;
+      margin-right: 8px;
+      font-size: 18px;
+      width: 20px;
       text-align: center;
     }
 
@@ -154,17 +164,24 @@
     @media (max-width: 480px) {
       .social-buttons {
         width: 85%;
-        padding: 16px;
-        gap: 12px;
+        padding: 12px;
+        gap: 8px;
       }
       .social-button {
-        padding: 14px 20px;
+        padding: 10px 14px;
       }
     }
   </style>
 </head>
 <body>
   <div class="social-buttons">
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="./me.jpeg" alt="My Profile Picture" class="profile-pic">
+      <h2>Antonio Guiotto</h2>
+    </div>
+    
+    <!-- Link Tree -->
     <h4>Instagram</h4>
     <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
       <i class="fab fa-instagram"></i>
@@ -199,10 +216,12 @@
   </div>
 
   <script>
+    // Handle all social links
     document.querySelectorAll('.social-button').forEach(button => {
       button.addEventListener('click', function(e) {
+        // Let the default action occur for download links.
         if (this.hasAttribute('download')) return;
-        
+
         e.preventDefault();
         
         if (this.id === 'cv-button') {
