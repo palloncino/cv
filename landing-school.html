@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full-Immersion Malta - Studia Inglese</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1a1a1a;
+      --accent-color: #C4A484;
+      --text-light: #ffffff;
+      --text-dark: #1a1a1a;
+      --glass-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.5;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4)),
+                  url('./media/school-people.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem;
+    }
+
+    .container {
+      position: relative;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 6rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 6.5rem;
+      font-weight: 300;
+      margin: 0 0 2rem 0;
+      text-align: left;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--primary-color);
+    }
+
+    .highlight {
+      font-weight: 800;
+      color: var(--accent-color);
+    }
+
+    .intro-text {
+      font-size: 1.75rem;
+      text-align: left;
+      margin-bottom: 6rem;
+      max-width: 650px;
+      font-weight: 300;
+      color: #666;
+      letter-spacing: -0.01em;
+    }
+
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin: 4rem 0;
+    }
+
+    .destination-card {
+      position: relative;
+      background: transparent;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      padding: 3rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .destination-card:hover {
+      background: white;
+      transform: translateY(-8px);
+      border-color: transparent;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-link {
+      display: block;
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .card-title {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin: 0 0 1.5rem 0;
+      letter-spacing: -0.02em;
+    }
+
+    .card-description {
+      font-size: 1.1rem;
+      color: #666;
+      margin: 0;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .assistance-container {
+      position: fixed;
+      bottom: 3rem;
+      right: 3rem;
+      display: flex;
+      align-items: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: all 0.4s ease;
+    }
+
+    .assistance-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .assistant-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 0;
+      margin-right: 1.5rem;
+      object-fit: cover;
+    }
+
+    .whatsapp-button {
+      display: flex;
+      align-items: center;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+      background: #333;
+    }
+
+    .cta-section {
+      text-align: left;
+      margin-top: 6rem;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      background: var(--primary-color);
+      color: white;
+      padding: 1.5rem 3rem;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #333;
+    }
+
+    .cta-button::after {
+      content: '→';
+      margin-left: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover::after {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 1200px) {
+      .container {
+        padding: 4rem;
+      }
+
+      h1 {
+        font-size: 5rem;
+      }
+
+      .destinations-grid {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 4rem;
+        min-height: auto;
+      }
+
+      .container {
+        margin: 0;
+        padding: 2.5rem 1.5rem;
+        min-height: 100vh;
+        border: none;
+      }
+
+      .content-wrapper {
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+        text-align: left;
+        margin-bottom: 1.5rem;
+      }
+
+      .intro-text {
+        font-size: 1.2rem;
+        text-align: left;
+        margin-bottom: 2.5rem;
+      }
+
+      .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .destination-card {
+        padding: 1.5rem;
+        margin: 0;
+        border-width: 1px;
+      }
+
+      .card-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-description {
+        font-size: 1rem;
+      }
+
+      .assistance-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.75rem;
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .assistant-photo {
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+      }
+
+      .whatsapp-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      .cta-section {
+        margin-top: 2.5rem;
+        padding-top: 2.5rem;
+        margin-bottom: 5rem; /* Space for fixed assistance container */
+      }
+
+      .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1.25rem;
+        font-size: 1rem;
+      }
+
+      .site-header {
+        padding: 1rem;
+        background: var(--glass-bg);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-logo {
+        height: 24px;
+        filter: none;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+      }
+
+      .destination-card {
+        padding: 1.25rem;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+      }
+
+      .site-header {
+        padding: 0.75rem;
+      }
+
+      .brand-logo {
+        height: 20px;
+      }
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+      pointer-events: auto;
+    }
+
+    .brand-logo:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <img src="https://www.full-immersion.com/wp-content/uploads/2018/02/logo-large-450x51.png" alt="Full Immersion" class="brand-logo">
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="content-wrapper">
+        <h1>Studia Inglese a<br><span class="highlight">Malta</span></h1>
+        <p class="intro-text">Un'esperienza linguistica esclusiva nel cuore del Mediterraneo. Perfeziona il tuo inglese in un ambiente internazionale e stimolante.</p>
+
+        <div class="destinations-grid">
+          <div class="destination-card">
+            <a href="https://www.full-immersion.com/corso-inglese-malta-saint-julian#prezzi" class="card-link">
+              <h3 class="card-title">Saint Julian's</h3>
+              <p class="card-description">Centro cosmopolita di Malta. Un ambiente dinamico dove l'apprendimento incontra le opportunità di networking internazionale.</p>
+            </a>
+          </div>
+          
+          <div class="destination-card">
+            <a href="https://www.full-immersion.com/corso-inglese-malta-adulti-over-30#prezzi" class="card-link">
+              <h3 class="card-title">Over 30, 40, 50</h3>
+              <p class="card-description">Programmi esclusivi per professionisti. Un percorso formativo personalizzato in un contesto maturo e stimolante.</p>
+            </a>
+          </div>
+
+          <div class="destination-card">
+            <a href="https://www.full-immersion.com/corso-inglese-sliema-malta#prezzi" class="card-link">
+              <h3 class="card-title">Sliema</h3>
+              <p class="card-description">L'eleganza del waterfront maltese. Corsi di inglese in una location sofisticata con viste mozzafiato sul Mediterraneo.</p>
+            </a>
+          </div>
+
+          <div class="destination-card">
+            <a href="https://www.full-immersion.com/corso-inglese-gozo#prezzi" class="card-link">
+              <h3 class="card-title">Gozo</h3>
+              <p class="card-description">Un'oasi di tranquillità. Immersione linguistica in un'atmosfera autentica e rilassata, lontano dal turismo di massa.</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <a href="https://www.full-immersion.com/malta/" class="cta-button">Scopri i Nostri Programmi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assistance-container">
+    <img src="./me.jpeg" alt="Antonio Guiotto" class="assistant-photo">
+    <a href="https://wa.me/+393474943221" class="whatsapp-button">
+      Hai domande? Parliamone
+    </a>
+  </div>
+</body>
+</html>

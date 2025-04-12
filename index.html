@@ -41,10 +41,10 @@
       padding-top: 15px;
       font-family: 'Roboto', sans-serif;
       color: #fff;
-      /* Animated Gradient Background */
-      background: linear-gradient(-45deg, #ff0178, #00bbff, #00ff78);
+      /* Updated Gradient Background */
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       background-size: 400% 400%;
-      animation: gradientBG 5s ease infinite;
+      animation: gradientBG 15s ease infinite;
     }
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
@@ -53,7 +53,136 @@
     }
 
     /***********************************************
-     * 2. PROFILE SECTION
+     * 2. RENTAL SECTION
+     ***********************************************/
+    .rental-section {
+      width: 90%;
+      max-width: 320px;
+      margin: 20px 0;
+      padding: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: rgba(255, 193, 7, 0.2);
+      border: 1px solid rgba(255, 193, 7, 0.4);
+      position: relative;
+    }
+
+    .rental-section::before {
+      content: "⚠️";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      background: rgba(255, 193, 7, 0.2);
+      padding: 0 10px;
+      border-radius: 20px;
+    }
+
+    .rental-button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px 20px;
+      min-height: 80px;
+      background: rgba(255, 193, 7, 0.3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(255, 193, 7, 0.4);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .rental-button:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 193, 7, 0.4);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .rental-button .main-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .rental-button .negotiable {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-style: italic;
+      margin-left: 32px;
+      line-height: 1.2;
+    }
+
+    .rental-button i {
+      margin-right: 12px;
+      font-size: 24px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .rental-button .apartment i {
+      color: #ff5a5f;
+    }
+
+    .rental-button .garage i {
+      color: #4a90e2;
+    }
+
+    .rental-section h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      opacity: 0.95;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .rental-section h4 .subtitle {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    .location-label {
+      position: absolute;
+      top: -25px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .location-label i {
+      font-size: 1rem;
+    }
+
+    /***********************************************
+     * 3. PROFILE SECTION
      ***********************************************/
     .profile {
       display: flex;
@@ -75,7 +204,7 @@
     }
 
     /***********************************************
-     * 3. CONTAINER WITH GLASSMORPHIC EFFECT
+     * 4. CONTAINER WITH GLASSMORPHIC EFFECT
      ***********************************************/
     .social-buttons {
       width: 90%;
@@ -93,7 +222,7 @@
     }
 
     /***********************************************
-     * 4. TITLES & DIVIDERS
+     * 5. TITLES & DIVIDERS
      ***********************************************/
     h4 {
       margin: 4px 0 2px;
@@ -114,7 +243,7 @@
     }
 
     /***********************************************
-     * 5. SOCIAL BUTTON STYLES – NO BOX SHADOWS
+     * 6. SOCIAL BUTTON STYLES – NO BOX SHADOWS
      ***********************************************/
     .social-button {
       display: flex;
@@ -159,7 +288,7 @@
     }
 
     /***********************************************
-     * 6. RESPONSIVE
+     * 7. RESPONSIVE
      ***********************************************/
     @media (max-width: 480px) {
       .social-buttons {
@@ -170,6 +299,56 @@
       .social-button {
         padding: 10px 14px;
       }
+      .rental-button {
+        min-height: 90px;
+        padding: 14px 16px;
+      }
+      .rental-button .main-text {
+        font-size: 15px;
+      }
+      .rental-button .negotiable {
+        font-size: 0.8rem;
+        margin-left: 28px;
+      }
+    }
+
+    .sale-label {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff5a5f;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+    }
+
+    .price-tag {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #4CAF50;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+    }
+
+    .negotiable {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      font-style: italic;
+      margin-top: 2px;
     }
   </style>
 </head>
@@ -180,16 +359,40 @@
       <img src="./me.jpeg" alt="My Profile Picture" class="profile-pic">
       <h2>Antonio Guiotto</h2>
     </div>
-    
+  </div>
+
+  <div class="rental-section">
+    <div class="location-label">
+      <i class="fas fa-map-marker-alt"></i>
+      Valdagno, VI
+    </div>
+    <h4>
+      Rentals / Affitti
+      <span class="subtitle">Available Properties / Immobili Disponibili</span>
+    </h4>
+    <a href="apartment.html" class="rental-button apartment">
+      <span class="price-tag">450€/m</span>
+      <div class="main-text">
+        <i class="fas fa-home"></i>
+        Apartment for Rent / Appartamento in Affitto
+      </div>
+      <span class="negotiable">(open to negotiation / trattabile)</span>
+    </a>
+    <a href="garage.html" class="rental-button garage">
+      <span class="sale-label">For Sale</span>
+      <div class="main-text">
+        <i class="fas fa-box"></i>
+        Storage Space / Locale Deposito
+      </div>
+    </a>
+  </div>
+
+  <div class="social-buttons">
     <!-- Link Tree -->
     <h4>Instagram</h4>
     <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
       <i class="fab fa-instagram"></i>
       Personal profile
-    </a>
-    <a href="#" class="social-button instagram2" data-url="https://instagram.com/black_combat_design">
-      <i class="fab fa-instagram"></i>
-      black_combat_design
     </a>
     <hr />
     <h4>Software</h4>
