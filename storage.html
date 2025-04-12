@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lovely Apartment in Central Valdagno</title>
+  <title>Storage Space in Valdagno</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -93,6 +93,27 @@
       object-fit: cover;
     }
 
+    .price-section {
+      text-align: center;
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .price-tag {
+      font-size: 2rem;
+      color: #2196F3;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .price-note {
+      font-size: 1rem;
+      color: #666;
+      font-style: italic;
+    }
+
     .info-section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -153,26 +174,6 @@
       flex-wrap: wrap;
     }
 
-    .airbnb-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 30px;
-      background: #FF5A5F;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      min-width: 200px;
-    }
-
-    .airbnb-button img {
-      width: 30px;
-      height: 30px;
-      margin-right: 12px;
-      filter: brightness(0) invert(1);
-    }
-
     .whatsapp-button {
       display: inline-flex;
       align-items: center;
@@ -216,7 +217,6 @@
         flex-direction: column;
       }
       
-      .airbnb-button,
       .whatsapp-button {
         width: 100%;
       }
@@ -230,23 +230,31 @@
 
   <div class="container">
     <div class="header">
-      <h1>Lovely Apartment in Central Valdagno</h1>
-      <p>Perfect for short & long-term stays</p>
+      <h1>Storage Space for Sale</h1>
+      <p>Locale Deposito in Vendita</p>
       <div class="location">
         <i class="fas fa-map-marker-alt"></i>
-        Via Don Bosco 17, 36078, Valdagno (VI)
+        Piazza Dante Alighieri, Valdagno (VI)
       </div>
     </div>
 
     <div class="gallery">
       <div class="gallery-item">
-        <img src="media/apt/apt-exterior.avif" alt="Exterior">
+        <img src="media/storage/storage-1.jpg" alt="Storage Space">
       </div>
       <div class="gallery-item">
-        <img src="media/apt/apt-salotto.avif" alt="Living Room">
+        <img src="media/storage/storage-2.jpg" alt="Storage Space">
       </div>
       <div class="gallery-item">
-        <img src="media/apt/apt-bedroom.avif" alt="Bedroom">
+        <img src="media/storage/storage-3.jpg" alt="Storage Space">
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="price-tag">€6,000</div>
+      <div class="price-note">
+        Price negotiable / Prezzo trattabile<br>
+        Additional costs may apply / Costi aggiuntivi potrebbero essere applicati
       </div>
     </div>
 
@@ -256,15 +264,11 @@
         <ul class="info-list">
           <li>
             <div class="label">Location</div>
-            <div class="value">Via Don Bosco 17, Floor 1</div>
+            <div class="value">Piazza Dante Alighieri, Floor ST-3</div>
           </li>
           <li>
             <div class="label">Size</div>
-            <div class="value">60 m²</div>
-          </li>
-          <li>
-            <div class="label">Rooms</div>
-            <div class="value">2 bedrooms, 1 bathroom, living room, kitchen</div>
+            <div class="value">13 m²</div>
           </li>
         </ul>
       </div>
@@ -273,25 +277,17 @@
         <ul class="info-list">
           <li>
             <div class="label">Ubicazione</div>
-            <div class="value">Via Don Bosco 17, Piano 1</div>
+            <div class="value">Piazza Dante Alighieri, Piano ST-3</div>
           </li>
           <li>
             <div class="label">Superficie</div>
-            <div class="value">60 m²</div>
-          </li>
-          <li>
-            <div class="label">Stanze</div>
-            <div class="value">2 camere da letto, 1 bagno, soggiorno, cucina</div>
+            <div class="value">13 m²</div>
           </li>
         </ul>
       </div>
     </div>
 
     <div class="buttons-container">
-      <a href="https://www.airbnb.com/l/TOYw4MCF" class="airbnb-button" target="_blank">
-        <img src="media/airbnb-logo.png" alt="Airbnb">
-        View on Airbnb
-      </a>
       <a href="https://wa.me/393474943221" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
         Contact via WhatsApp
