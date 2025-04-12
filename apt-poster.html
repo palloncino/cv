@@ -3,161 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <title>Lovely Apartment in Valdagno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
   <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       color: #222;
-      padding: 40px;
       margin: 0;
+      padding: 0;
       background: white;
+      width: 210mm;
+      height: 297mm;
     }
 
     .poster {
-      max-width: 800px;
-      margin: 0 auto;
-      border: 2px solid #ddd;
-      padding: 30px;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm;
+      box-sizing: border-box;
+      position: relative;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 30px;
+      padding: 10mm 0;
+      margin-bottom: 5mm;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: #333;
+      font-size: 24pt;
+      margin-bottom: 5mm;
+      font-weight: 700;
+      color: #222;
     }
 
     .subheading {
-      font-size: 1.2rem;
+      font-size: 14pt;
       color: #666;
-      margin-bottom: 15px;
+      margin-bottom: 5mm;
     }
 
     .location {
-      font-weight: bold;
-      color: #444;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
+      gap: 3mm;
+      padding: 3mm 6mm;
+      border: 0.5mm solid #ddd;
+      border-radius: 2mm;
+      font-size: 12pt;
     }
 
     .gallery {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin: 5mm 0;
     }
 
     .gallery img {
-      width: 32%;
-      height: 200px;
-      border-radius: 8px;
+      width: 100%;
+      height: 45mm;
       object-fit: cover;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border: 0.5mm solid #ddd;
     }
 
-    .property-details {
-      background: #f8f9fa;
-      padding: 25px;
-      border-radius: 8px;
-      margin: 30px 0;
-      border: 1px solid #eee;
+    .content-section {
+      margin: 5mm 0;
+      padding: 5mm 0;
     }
 
-    .property-details h3 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .details-grid {
+    .content-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 20px;
+      gap: 5mm;
     }
 
-    .detail-item {
-      text-align: left;
-      padding: 15px;
-      background: white;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    .content-column {
+      padding: 4mm;
     }
 
-    .detail-label {
-      font-weight: bold;
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-    }
-
-    .detail-content {
+    .content-column h3 {
+      color: #222;
+      font-size: 14pt;
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #ddd;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 2mm;
     }
 
-    .detail-value {
-      font-size: 1.1rem;
-      color: #333;
-      flex: 1;
-    }
-
-    .layout {
-      text-align: center;
-      padding: 15px;
-      background: white;
-      border-radius: 6px;
-      margin-top: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .layout p {
+    .content-column ul {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      line-height: 1.6;
-      color: #444;
     }
 
-    .description {
-      margin: 30px 0;
-      line-height: 1.6;
-      font-size: 1rem;
-      text-align: center;
-      color: #444;
+    .content-column li {
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #eee;
+    }
+
+    .content-column li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .label {
+      font-size: 10pt;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+    }
+
+    .value {
+      font-size: 12pt;
+      color: #222;
+      font-weight: 500;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
-      margin: 30px 0;
-      gap: 20px;
+      gap: 5mm;
+      margin: 5mm 0;
     }
 
     .button {
+      flex: 1;
+      max-width: 80mm;
       display: inline-flex;
       align-items: center;
-      padding: 12px 24px;
+      justify-content: center;
+      padding: 3mm 5mm;
       text-decoration: none;
       color: white;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: transform 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
+      border-radius: 2mm;
+      font-weight: 600;
+      font-size: 11pt;
     }
 
     .airbnb {
@@ -170,79 +160,74 @@
 
     .urls {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 9pt;
       color: #666;
-      margin-top: 10px;
+      margin-top: 2mm;
     }
 
     .qr-section {
-      margin: 30px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+      text-align: center;
+      margin: 5mm 0;
     }
 
     .qr-section img {
-      width: 150px;
-      height: 150px;
-      border: 2px solid #000;
-      padding: 10px;
-      background: white;
+      width: 40mm;
+      height: 40mm;
+      border: 0.5mm solid #ddd;
+      padding: 2mm;
     }
 
     .qr-note {
-      font-size: 0.9rem;
+      font-size: 10pt;
       color: #666;
-      text-align: center;
+      margin-top: 3mm;
     }
 
     .footer {
       text-align: center;
-      font-size: 0.9rem;
+      padding: 3mm 0;
+      margin-top: 5mm;
+      border-top: 0.5mm solid #ddd;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 10pt;
       color: #666;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
     }
 
     .language-flag {
       display: inline-block;
-      width: 24px;
-      height: 16px;
-      margin: 0 8px;
+      width: 1.2em;
+      height: 0.8em;
+      margin: 0 0.3em;
       vertical-align: middle;
       border-radius: 2px;
+      overflow: hidden;
     }
 
     .language-flag.en {
-      background: linear-gradient(to right, #00247d 33%, #fff 33%, #fff 66%, #cf142b 66%);
+      background: linear-gradient(to right, #B31942 0%, #B31942 40%, #fff 40%, #fff 60%, #B31942 60%, #B31942 100%);
     }
 
     .language-flag.it {
-      background: linear-gradient(to right, #009246 33%, #fff 33%, #fff 66%, #ce2b37 66%);
+      background: linear-gradient(to right, #009246 0%, #009246 33%, #fff 33%, #fff 66%, #CE2B37 66%, #CE2B37 100%);
     }
 
-    .language-section {
-      display: flex;
-      gap: 20px;
-      margin: 15px 0;
+    .language-flag i {
+      display: none;
     }
 
-    .language-content {
-      flex: 1;
-      padding: 15px;
-      background: white;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .language-label {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #333;
+    @media print {
+      body {
+        background: white;
+      }
+      .poster {
+        box-shadow: none;
+      }
+      .button {
+        border: 0.5mm solid currentColor;
+      }
     }
   </style>
 </head>
@@ -263,58 +248,41 @@
       <img src="media/apt/apt-bedroom.avif" alt="Bedroom">
     </div>
 
-    <div class="property-details">
-      <h3>
-        <span class="language-flag en"></span>
-        Property Details
-        <span class="language-flag it"></span>
-        Dettagli Immobile
-      </h3>
-      <div class="details-grid">
-        <div class="detail-item">
-          <div class="detail-label">Size / Superficie</div>
-          <div class="detail-value">59 m²</div>
+    <div class="content-section">
+      <div class="content-grid">
+        <div class="content-column">
+          <h3><span class="language-flag fi fi-us"></span>English</h3>
+          <ul>
+            <li>
+              <div class="label">Location</div>
+              <div class="value">Via Don Bosco 17, Floor 1</div>
+            </li>
+            <li>
+              <div class="label">Size</div>
+              <div class="value">60 m²</div>
+            </li>
+            <li>
+              <div class="label">Rooms</div>
+              <div class="value">2 bedrooms, 1 bathroom, living room, kitchen</div>
+            </li>
+          </ul>
         </div>
-        <div class="detail-item">
-          <div class="detail-label">Floor / Piano</div>
-          <div class="detail-value">Second floor, no lift / Secondo piano, senza ascensore</div>
-        </div>
-      </div>
-      <div class="layout">
-        <div class="language-section">
-          <div class="language-content">
-            <div class="language-label">
-              <span class="language-flag en"></span>
-              English
-            </div>
-            <p>1 bedroom, living room with kitchen, and bathroom</p>
-          </div>
-          <div class="language-content">
-            <div class="language-label">
-              <span class="language-flag it"></span>
-              Italiano
-            </div>
-            <p>1 camera da letto, soggiorno con cucina e bagno</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="description">
-      <div class="language-section">
-        <div class="language-content">
-          <div class="language-label">
-            <span class="language-flag en"></span>
-            English
-          </div>
-          <p>Check out our Airbnb listing! You can also book directly with us to save on fees.</p>
-        </div>
-        <div class="language-content">
-          <div class="language-label">
-            <span class="language-flag it"></span>
-            Italiano
-          </div>
-          <p>Guarda il nostro annuncio su Airbnb! Possiamo anche organizzare direttamente per evitare commissioni.</p>
+        <div class="content-column">
+          <h3><span class="language-flag fi fi-it"></span>Italiano</h3>
+          <ul>
+            <li>
+              <div class="label">Ubicazione</div>
+              <div class="value">Via Don Bosco 17, Piano 1</div>
+            </li>
+            <li>
+              <div class="label">Superficie</div>
+              <div class="value">60 m²</div>
+            </li>
+            <li>
+              <div class="label">Stanze</div>
+              <div class="value">2 camere da letto, 1 bagno, soggiorno, cucina</div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -336,7 +304,7 @@
     </div>
 
     <div class="footer">
-      Available for up to 2 guests · Fully equipped kitchen
+      <p>Available for up to 2 guests · Fully equipped kitchen</p>
     </div>
   </div>
 </body>

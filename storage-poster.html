@@ -3,114 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <title>Storage Space in Valdagno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
   <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       color: #222;
-      padding: 40px;
       margin: 0;
+      padding: 0;
       background: white;
+      width: 210mm;
+      height: 297mm;
     }
 
     .poster {
-      max-width: 800px;
-      margin: 0 auto;
-      border: 2px solid #ddd;
-      padding: 30px;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10mm 0;
+      margin-bottom: 5mm;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      text-align: center;
+      font-size: 24pt;
+      margin-bottom: 5mm;
+      font-weight: 700;
+      color: #222;
     }
 
     .subheading {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+      font-size: 14pt;
+      color: #666;
+      margin-bottom: 5mm;
     }
 
     .location {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3mm;
+      padding: 3mm 6mm;
+      border: 0.5mm solid #ddd;
+      border-radius: 2mm;
+      font-size: 12pt;
     }
 
     .gallery {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin: 5mm 0;
     }
 
     .gallery img {
-      width: 32%;
-      height: auto;
-      border-radius: 8px;
+      width: 100%;
+      height: 45mm;
       object-fit: cover;
-      border: 1px solid #ccc;
+      border: 0.5mm solid #ddd;
     }
 
-    .description {
-      margin-bottom: 30px;
-      line-height: 1.6;
-      font-size: 1rem;
+    .content-section {
+      margin: 5mm 0;
+      padding: 5mm 0;
     }
 
-    .measurements {
-      background: #f5f5f5;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-
-    .measurements h3 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .measurements-grid {
+    .content-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 5mm;
     }
 
-    .measurement-item {
+    .content-column {
+      padding: 4mm;
+    }
+
+    .content-column h3 {
+      color: #222;
+      font-size: 14pt;
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .content-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-column li {
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #eee;
+    }
+
+    .content-column li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .label {
+      font-size: 10pt;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+    }
+
+    .value {
+      font-size: 12pt;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .price-section {
       text-align: center;
+      margin: 5mm 0;
+      padding: 5mm 0;
     }
 
-    .measurement-value {
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-bottom: 5px;
+    .price-tag {
+      font-size: 24pt;
+      color: #2196F3;
+      font-weight: 700;
+      margin-bottom: 2mm;
     }
 
-    .warning {
-      background: #fff3f3;
-      border: 1px solid #ff5a5f;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-weight: bold;
-      color: #ff5a5f;
+    .price-note {
+      font-size: 11pt;
+      color: #666;
+      font-style: italic;
     }
 
     .buttons {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
+      justify-content: center;
+      gap: 5mm;
+      margin: 5mm 0;
     }
 
     .button {
-      display: inline-block;
-      padding: 10px 20px;
+      flex: 1;
+      max-width: 80mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3mm 5mm;
       text-decoration: none;
       color: white;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 0.95rem;
+      border-radius: 2mm;
+      font-weight: 600;
+      font-size: 11pt;
     }
 
     .whatsapp {
@@ -118,71 +174,75 @@
     }
 
     .urls {
-      font-size: 0.9rem;
-      margin-top: 10px;
-      word-break: break-word;
+      text-align: center;
+      font-size: 9pt;
+      color: #666;
+      margin-top: 2mm;
     }
 
     .qr-section {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
+      text-align: center;
+      margin: 5mm 0;
     }
 
     .qr-section img {
-      width: 150px;
-      height: 150px;
-      border: 2px solid #000;
+      width: 40mm;
+      height: 40mm;
+      border: 0.5mm solid #ddd;
+      padding: 2mm;
     }
 
-    .footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 20px;
-    }
-
-    .price {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #3498db;
-      margin: 20px 0;
-    }
-
-    .price-note {
-      text-align: center;
-      font-size: 0.9rem;
+    .qr-note {
+      font-size: 10pt;
       color: #666;
-      margin-bottom: 20px;
+      margin-top: 3mm;
     }
 
-    .negotiable {
-      text-align: center;
-      font-size: 1rem;
-      font-style: italic;
-      color: #3498db;
-      margin: 10px 0;
+    .language-flag {
+      display: inline-block;
+      width: 1.2em;
+      height: 0.8em;
+      margin: 0 0.3em;
+      vertical-align: middle;
+      border-radius: 2px;
+      overflow: hidden;
     }
 
-    .phone-number {
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-top: 10px;
-      color: #333;
+    .language-flag.en {
+      background: linear-gradient(to right, #B31942 0%, #B31942 40%, #fff 40%, #fff 60%, #B31942 60%, #B31942 100%);
+    }
+
+    .language-flag.it {
+      background: linear-gradient(to right, #009246 0%, #009246 33%, #fff 33%, #fff 66%, #CE2B37 66%, #CE2B37 100%);
+    }
+
+    .language-flag i {
+      display: none;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .poster {
+        box-shadow: none;
+      }
+      .button {
+        border: 0.5mm solid currentColor;
+      }
     }
   </style>
 </head>
 <body>
   <div class="poster">
-    <h1>Storage Space in Central Valdagno</h1>
-    <div class="subheading">Perfect for storage or small business</div>
-    <div class="location">📍 Via Don Bosco 17, 36078, Valdagno (VI)</div>
-
-    <div class="price">6.000 EUR</div>
-    <div class="negotiable">Price negotiable / Prezzo trattabile</div>
-    <div class="price-note">Additional costs may apply / Potrebbero applicarsi costi aggiuntivi</div>
+    <div class="header">
+      <h1>Storage Space for Sale</h1>
+      <div class="subheading">Locale Deposito in Vendita</div>
+      <div class="location">
+        <span>📍</span>
+        Piazza Dante Alighieri, Valdagno (VI)
+      </div>
+    </div>
 
     <div class="gallery">
       <img src="media/storage/storage-1.jpg" alt="Storage Space">
@@ -190,51 +250,55 @@
       <img src="media/storage/storage-3.jpg" alt="Storage Space">
     </div>
 
-    <div class="measurements">
-      <h3>Measurements / Misure</h3>
-      <div class="measurements-grid">
-        <div class="measurement-item">
-          <div class="measurement-value">3.5m x 4.2m</div>
-          <div>Main Space / Spazio Principale</div>
-        </div>
-        <div class="measurement-item">
-          <div class="measurement-value">2.1m</div>
-          <div>Height / Altezza</div>
-        </div>
-        <div class="measurement-item">
-          <div class="measurement-value">1.2m x 2.4m</div>
-          <div>Entrance / Ingresso</div>
-        </div>
-        <div class="measurement-item">
-          <div class="measurement-value">14.7m²</div>
-          <div>Total Area / Superficie Totale</div>
-        </div>
+    <div class="price-section">
+      <div class="price-tag">€6,000</div>
+      <div class="price-note">
+        Price negotiable / Prezzo trattabile<br>
+        Additional costs may apply / Costi aggiuntivi potrebbero essere applicati
       </div>
     </div>
 
-    <div class="warning">
-      ⚠️ NOT SUITABLE FOR CAR PARKING / NON ADATTO AL PARCHEGGIO AUTO
-    </div>
-
-    <div class="description">
-      <p><strong>EN:</strong> Perfect storage space in central location. Secure access and good lighting.</p>
-      <p><strong>IT:</strong> Spazio deposito perfetto in posizione centrale. Accesso sicuro e buona illuminazione.</p>
+    <div class="content-section">
+      <div class="content-grid">
+        <div class="content-column">
+          <h3><span class="language-flag fi fi-us"></span>English</h3>
+          <ul>
+            <li>
+              <div class="label">Location</div>
+              <div class="value">Piazza Dante Alighieri, Floor ST-3</div>
+            </li>
+            <li>
+              <div class="label">Size</div>
+              <div class="value">13 m²</div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-column">
+          <h3><span class="language-flag fi fi-it"></span>Italiano</h3>
+          <ul>
+            <li>
+              <div class="label">Ubicazione</div>
+              <div class="value">Piazza Dante Alighieri, Piano ST-3</div>
+            </li>
+            <li>
+              <div class="label">Superficie</div>
+              <div class="value">13 m²</div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="buttons">
       <div>
         <a href="https://wa.me/393474943221" class="button whatsapp" target="_blank">Contact via WhatsApp</a>
-        <div class="urls">https://wa.me/393474943221</div>
-        <div class="phone-number">+39 347 494 3221</div>
+        <div class="urls">+39 347 494 3221</div>
       </div>
     </div>
 
     <div class="qr-section">
       <img src="media/qr.jpeg" alt="QR Code">
-    </div>
-
-    <div class="footer">
-      For Sale / In Vendita · Secure Access / Accesso Sicuro · Central Location / Posizione Centrale
+      <div class="qr-note">Scan for more details / Scansiona per maggiori dettagli</div>
     </div>
   </div>
 </body>
