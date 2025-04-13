@@ -13,4 +13,3 @@ The site includes functionality to generate PDF posters using:
 - Required Node.js dependencies in `node_modules/`
 
 
-
