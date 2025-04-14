@@ -38,10 +38,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 15px 15px 50px 15px;
+      padding: 20px;
       font-family: 'Roboto', sans-serif;
       color: #fff;
-      /* Updated Gradient Background */
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
@@ -52,23 +51,38 @@
       100% { background-position: 0% 50%; }
     }
 
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     /***********************************************
      * 2. RENTAL SECTION
      ***********************************************/
-    .rental-section {
-      width: 90%;
-      max-width: 320px;
-      margin: 20px 0;
-      padding: 16px;
+    .rental-section, .opportunities-section {
+      width: 100%;
+      margin: 30px 0;
+      padding: 25px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      background: rgba(255, 193, 7, 0.2);
-      border: 1px solid rgba(255, 193, 7, 0.4);
+      gap: 20px;
       position: relative;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .rental-section {
+      background: rgba(255, 193, 7, 0.15);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+    }
+
+    .opportunities-section {
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid rgba(76, 175, 80, 0.3);
     }
 
     .rental-section::before {
@@ -88,19 +102,19 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: 16px 20px;
-      min-height: 80px;
-      background: rgba(255, 193, 7, 0.3);
+      padding: 20px 25px;
+      min-height: 90px;
       color: #fff;
       text-decoration: none;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
       position: relative;
-      border: 1px solid rgba(255, 193, 7, 0.4);
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 193, 7, 0.3);
+      border: 1px solid rgba(255, 193, 7, 0.4);
     }
 
     .rental-button:hover {
@@ -112,8 +126,8 @@
     .rental-button .main-text {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 4px;
+      gap: 15px;
+      margin-bottom: 5px;
     }
 
     .rental-button .negotiable {
@@ -140,32 +154,30 @@
     }
 
     .rental-section h4 {
-      font-size: 1.1rem;
+      margin: 0 0 10px;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 5px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: #fff;
       opacity: 0.95;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
     }
 
-    .rental-section h4 .subtitle {
+    .subtitle {
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 1px;
       opacity: 0.8;
+      display: block;
+      margin-top: 5px;
     }
 
     .rental-details {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       opacity: 0.9;
       text-align: center;
-      margin: 8px 0;
-      line-height: 1.4;
+      margin: 10px 0;
+      line-height: 1.5;
     }
 
     .qr-note {
@@ -178,16 +190,16 @@
 
     .location-label {
       position: absolute;
-      top: -25px;
+      top: -15px;
       right: 20px;
       background: rgba(255, 255, 255, 0.2);
-      padding: 5px 12px;
+      padding: 8px 16px;
       border-radius: 20px;
       font-size: 0.9rem;
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -204,33 +216,33 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 30px;
+      text-align: center;
     }
     .profile-pic {
-      width: 70px; /* Increased from 60px to 70px */
-      height: 70px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 2px solid #fff;
-      margin-bottom: 4px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 15px;
+      object-fit: cover;
     }
     .profile h2 {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 500;
       margin: 0;
+      color: #fff;
     }
 
     /***********************************************
      * 4. CONTAINER WITH GLASSMORPHIC EFFECT
      ***********************************************/
     .social-buttons {
-      width: 90%;
-      max-width: 320px;
-      padding: 16px;
-      
+      width: 100%;
+      padding: 25px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-radius: 12px;
-      /* Removed box-shadow */
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -306,18 +318,22 @@
     /***********************************************
      * 7. RESPONSIVE
      ***********************************************/
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .social-buttons {
-        width: 85%;
+        width: 100%;
         padding: 12px;
         gap: 8px;
       }
       .social-button {
-        padding: 10px 14px;
+        width: 100%;
+        padding: 12px 16px;
+        margin: 4px 0;
       }
       .rental-button {
+        width: 100%;
         min-height: 90px;
         padding: 14px 16px;
+        margin: 4px 0;
       }
       .rental-button .main-text {
         font-size: 15px;
@@ -325,6 +341,15 @@
       .rental-button .negotiable {
         font-size: 0.8rem;
         margin-left: 28px;
+      }
+      .opportunities-button {
+        width: 100%;
+        min-height: 90px;
+        padding: 14px 16px;
+        margin: 4px 0;
+      }
+      .opportunities-button .main-text {
+        font-size: 15px;
       }
     }
 
@@ -366,6 +391,47 @@
       font-style: italic;
       margin-top: 2px;
     }
+
+    .opportunities-button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px 20px;
+      min-height: 80px;
+      background: rgba(76, 175, 80, 0.3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(76, 175, 80, 0.4);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .opportunities-button:hover {
+      transform: translateY(-3px);
+      background: rgba(76, 175, 80, 0.4);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .opportunities-button .main-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .opportunities-button i {
+      margin-right: 12px;
+      font-size: 24px;
+      width: 28px;
+      text-align: center;
+      color: #4CAF50;
+    }
   </style>
 </head>
 <body>
@@ -383,51 +449,66 @@
       Valdagno, VI
     </div>
     <h4>
-      Rentals / Affitti
-      <span class="subtitle">Available Properties / Immobili Disponibili</span>
+      Available Properties
+      <span class="subtitle">Short & Long Term Rentals</span>
     </h4>
     <div class="rental-details">
-      Short & Long Term Available / Disponibile per Breve e Lungo Periodo
+      Flexible rental options available
     </div>
     <a href="apartment.html" class="rental-button apartment">
       <span class="price-tag">450€/m</span>
       <div class="main-text">
         <i class="fas fa-home"></i>
-        Apartment for Rent / Appartamento in Affitto
+        Modern Apartment
       </div>
-      <span class="negotiable">(open to negotiation / trattabile)</span>
+      <span class="negotiable">(negotiable)</span>
     </a>
-    <div class="qr-note">
-      Scan QR code for full details / Scansiona il QR code per tutti i dettagli
-    </div>
+    
     <a href="storage.html" class="rental-button garage">
       <span class="sale-label">For Sale</span>
       <div class="main-text">
         <i class="fas fa-box"></i>
-        Storage Space / Locale Deposito
+        Storage Space
       </div>
     </a>
   </div>
 
+  <div class="opportunities-section">
+    <h4>
+      Available Positions
+      <span class="subtitle">Part-time Opportunities</span>
+    </h4>
+    <div class="rental-details">
+      Flexible working hours
+    </div>
+    <a href="maid.html" class="opportunities-button">
+      <div class="main-text">
+        <i class="fas fa-broom"></i>
+        Cleaning Position
+      </div>
+    </a>
+    
+  </div>
+
   <div class="social-buttons">
     <!-- Link Tree -->
-    <h4>Instagram</h4>
+    <h4>Social Media</h4>
     <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
       <i class="fab fa-instagram"></i>
-      Personal profile
+      Instagram Profile
     </a>
     <hr />
-    <h4>Software</h4>
+    <h4>Professional</h4>
     <a href="#" class="social-button linkedin" data-url="https://linkedin.com/in/antonioguiotto">
       <i class="fab fa-linkedin"></i>
       LinkedIn
     </a>
     <a href="#" class="social-button cv" id="cv-button">
       <i class="fas fa-file-alt"></i>
-      History and Services
+      Professional History
     </a>
     <hr />
-    <h4>Contacts</h4>
+    <h4>Contact</h4>
     <a href="#" class="social-button whatsapp" data-url="https://wa.me/393474943221">
       <i class="fab fa-whatsapp"></i>
       WhatsApp

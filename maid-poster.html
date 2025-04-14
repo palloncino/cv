@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cleaning Position - Posizione Pulizie</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      background: white;
+      width: 210mm;
+      height: 297mm;
+    }
+
+    .poster {
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10mm 0;
+      margin-bottom: 5mm;
+      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+      color: white;
+      border-radius: 2mm;
+    }
+
+    h1 {
+      font-size: 24pt;
+      margin-bottom: 5mm;
+      font-weight: 700;
+      color: white;
+    }
+
+    .subheading {
+      font-size: 14pt;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 5mm;
+    }
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 3mm;
+      padding: 3mm 6mm;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2mm;
+      font-size: 12pt;
+    }
+
+    .content-section {
+      margin: 5mm 0;
+      padding: 5mm;
+      background: white;
+      border-radius: 2mm;
+      box-shadow: 0 2mm 4mm rgba(0, 0, 0, 0.1);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5mm;
+    }
+
+    .content-column {
+      padding: 4mm;
+    }
+
+    .content-column h3 {
+      color: #4CAF50;
+      font-size: 14pt;
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #4CAF50;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .content-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .content-column li {
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 0.5mm solid #eee;
+    }
+
+    .content-column li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .label {
+      font-size: 10pt;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+    }
+
+    .value {
+      font-size: 12pt;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .translation {
+      font-size: 11pt;
+      color: #666;
+      margin-top: 1mm;
+      font-style: italic;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 5mm;
+      margin: 5mm 0;
+    }
+
+    .button {
+      flex: 1;
+      max-width: 80mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3mm 5mm;
+      text-decoration: none;
+      color: white;
+      border-radius: 2mm;
+      font-weight: 600;
+      font-size: 11pt;
+    }
+
+    .whatsapp {
+      background-color: #25D366;
+    }
+
+    .urls {
+      text-align: center;
+      font-size: 9pt;
+      color: #666;
+      margin-top: 2mm;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin: 5mm 0;
+    }
+
+    .qr-section img {
+      width: 40mm;
+      height: 40mm;
+      border: 0.5mm solid #ddd;
+      padding: 2mm;
+    }
+
+    .qr-note {
+      font-size: 10pt;
+      color: #666;
+      margin-top: 3mm;
+    }
+
+    .highlight {
+      text-align: center;
+      margin: 5mm 0;
+      padding: 3mm;
+      background-color: #f8f9fa;
+      border-radius: 2mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .poster {
+        box-shadow: none;
+      }
+      .button {
+        border: 0.5mm solid currentColor;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="header">
+      <h1>Cleaning Position / Posizione Pulizie</h1>
+      <div class="subheading">Professional Cleaning Service / Servizio di Pulizie Professionale</div>
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        Via Don Bosco 17, 36078, Valdagno (VI)
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="content-grid">
+        <div class="content-column">
+          <h3><i class="fas fa-broom"></i> Duties / Mansioni</h3>
+          <ul>
+            <li>
+              <div class="label">Apartment Cleaning / Pulizia Appartamento</div>
+              <div class="value">
+                Complete cleaning of Airbnb apartment (45 m²)
+                <div class="translation">Pulizia completa appartamento Airbnb (45 m²)</div>
+                Changing bed sheets and towels
+                <div class="translation">Cambio lenzuola e asciugamani</div>
+                Preparation for new guests
+                <div class="translation">Preparazione per nuovi ospiti</div>
+              </div>
+            </li>
+            <li>
+              <div class="label">Stairs Cleaning / Pulizia Scale</div>
+              <div class="value">
+                Complete cleaning of building stairs
+                <div class="translation">Pulizia completa delle scale del condominio</div>
+                Regular maintenance
+                <div class="translation">Manutenzione regolare</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-column">
+          <h3><i class="fas fa-calendar-alt"></i> Frequency / Frequenza</h3>
+          <ul>
+            <li>
+              <div class="label">Schedule / Programma</div>
+              <div class="value">
+                Weekly cleaning
+                <div class="translation">Pulizia settimanale</div>
+                Flexible hours
+                <div class="translation">Orari flessibili</div>
+                2-3 hours per session
+                <div class="translation">2-3 ore per sessione</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="content-grid">
+        <div class="content-column">
+          <h3><i class="fas fa-euro-sign"></i> Compensation / Compenso</h3>
+          <ul>
+            <li>
+              <div class="label">Apartment Cleaning / Pulizia Appartamento</div>
+              <div class="value">
+                40€ per cleaning session
+                <div class="translation">40€ per sessione di pulizia</div>
+              </div>
+            </li>
+            <li>
+              <div class="label">Stairs Cleaning / Pulizia Scale</div>
+              <div class="value">
+                25€ per cleaning session
+                <div class="translation">25€ per sessione di pulizia</div>
+              </div>
+            </li>
+            <li>
+              <div class="label">Benefits / Benefici</div>
+              <div class="value">
+                Regular payments
+                <div class="translation">Pagamenti regolari</div>
+                Transportation allowance
+                <div class="translation">Rimborso spese di trasporto</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-column">
+          <h3><i class="fas fa-user-check"></i> Requirements / Requisiti</h3>
+          <ul>
+            <li>
+              <div class="label">Experience / Esperienza</div>
+              <div class="value">
+                Experience in cleaning
+                <div class="translation">Esperienza nelle pulizie</div>
+              </div>
+            </li>
+            <li>
+              <div class="label">Skills / Competenze</div>
+              <div class="value">
+                Attention to detail
+                <div class="translation">Attenzione ai dettagli</div>
+                Reliability and punctuality
+                <div class="translation">Affidabilità e puntualità</div>
+              </div>
+            </li>
+            <li>
+              <div class="label">Equipment / Attrezzatura</div>
+              <div class="value">
+                Own cleaning supplies
+                <div class="translation">Propri attrezzi per le pulizie</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <div>
+        <a href="https://wa.me/393474943221" class="button whatsapp" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          Contact via WhatsApp / Contatta via WhatsApp
+        </a>
+        <div class="urls">+39 347 494 3221</div>
+      </div>
+    </div>
+
+    <div class="qr-section">
+      <img src="media/qr.jpeg" alt="QR Code">
+      <div class="qr-note">Scan for more details / Scansiona per maggiori dettagli</div>
+    </div>
+
+    <div class="highlight">
+      <p>💬 Interested? Contact me directly! / Interessato/a? Contattami direttamente!</p>
+    </div>
+  </div>
+</body>
+</html> 
