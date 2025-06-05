@@ -41,7 +41,7 @@
       padding: 20px;
       font-family: 'Roboto', sans-serif;
       color: #fff;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 50%, #252526 100%);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
     }
@@ -61,96 +61,57 @@
     /***********************************************
      * 2. RENTAL SECTION
      ***********************************************/
-    .rental-section, .opportunities-section {
-      width: 100%;
-      margin: 30px 0;
-      padding: 25px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      position: relative;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .rental-section {
-      background: rgba(255, 193, 7, 0.15);
-      border: 1px solid rgba(255, 193, 7, 0.3);
-    }
-
-    .opportunities-section {
-      background: rgba(76, 175, 80, 0.15);
-      border: 1px solid rgba(76, 175, 80, 0.3);
-    }
-
-    .rental-section::before {
-      content: "⚠️";
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 24px;
-      background: rgba(255, 193, 7, 0.2);
-      padding: 0 10px;
-      border-radius: 20px;
+    .negotiable {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      font-style: italic;
+      margin-left: 8px;
     }
 
     .rental-button {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 20px 25px;
-      min-height: 90px;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.2);
       color: #fff;
       text-decoration: none;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
       position: relative;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      background: rgba(255, 193, 7, 0.3);
-      border: 1px solid rgba(255, 193, 7, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .rental-button:hover {
-      transform: translateY(-3px);
-      background: rgba(255, 193, 7, 0.4);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .rental-button:active {
+      transform: translateY(0);
+    }
+
+    .rental-button i {
+      margin-right: 8px;
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
     }
 
     .rental-button .main-text {
       display: flex;
       align-items: center;
-      gap: 15px;
-      margin-bottom: 5px;
+      gap: 8px;
     }
 
     .rental-button .negotiable {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       opacity: 0.9;
       font-style: italic;
-      margin-left: 32px;
-      line-height: 1.2;
-    }
-
-    .rental-button i {
-      margin-right: 12px;
-      font-size: 24px;
-      width: 28px;
-      text-align: center;
-    }
-
-    .rental-button .apartment i {
-      color: #ff5a5f;
-    }
-
-    .rental-button .garage i {
-      color: #4a90e2;
+      margin-left: 8px;
     }
 
     .rental-section h4 {
@@ -353,43 +314,8 @@
       }
     }
 
-    .sale-label {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #ff5a5f;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      white-space: nowrap;
-    }
-
-    .price-tag {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #4CAF50;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      white-space: nowrap;
-    }
-
-    .negotiable {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      font-style: italic;
-      margin-top: 2px;
+    .sale-label, .price-tag {
+      display: none;
     }
 
     .opportunities-button {
@@ -443,59 +369,16 @@
     </div>
   </div>
 
-  <div class="rental-section">
-    <div class="location-label">
-      <i class="fas fa-map-marker-alt"></i>
-      Valdagno, VI
-    </div>
-    <h4>
-      Available Properties
-      <span class="subtitle">Short & Long Term Rentals</span>
-    </h4>
-    <div class="rental-details">
-      Flexible rental options available
-    </div>
-    <a href="apartment.html" class="rental-button apartment">
-      <span class="price-tag">450€/m</span>
-      <div class="main-text">
-        <i class="fas fa-home"></i>
-        Modern Apartment
-      </div>
-      <span class="negotiable">(negotiable)</span>
-    </a>
-    
-    <a href="storage.html" class="rental-button garage">
-      <span class="sale-label">For Sale</span>
-      <div class="main-text">
-        <i class="fas fa-box"></i>
-        Storage Space
-      </div>
-    </a>
-  </div>
-
-  <div class="opportunities-section">
-    <h4>
-      Available Positions
-      <span class="subtitle">Part-time Opportunities</span>
-    </h4>
-    <div class="rental-details">
-      Flexible working hours
-    </div>
-    <a href="maid.html" class="opportunities-button">
-      <div class="main-text">
-        <i class="fas fa-broom"></i>
-        Cleaning Position
-      </div>
-    </a>
-    
-  </div>
-
   <div class="social-buttons">
     <!-- Link Tree -->
     <h4>Social Media</h4>
     <a href="#" class="social-button instagram" data-url="https://instagram.com/antonio_guiotto">
       <i class="fab fa-instagram"></i>
       Instagram Profile
+    </a>
+    <a href="#" class="social-button instagram" data-url="https://instagram.com/black_combat_design">
+      <i class="fab fa-instagram"></i>
+      Designs
     </a>
     <hr />
     <h4>Professional</h4>
@@ -506,6 +389,19 @@
     <a href="#" class="social-button cv" id="cv-button">
       <i class="fas fa-file-alt"></i>
       Professional History
+    </a>
+    <hr />
+    <h4>Properties</h4>
+    <a href="apartment.html" class="social-button">
+      <i class="fas fa-home"></i>
+      Modern Apartment
+      <span class="negotiable">(450€/m, negotiable)</span>
+    </a>
+    
+    <a href="storage.html" class="social-button">
+      <i class="fas fa-box"></i>
+      Storage Space
+      <span class="negotiable">(For Sale)</span>
     </a>
     <hr />
     <h4>Contact</h4>

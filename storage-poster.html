@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Storage Space in Valdagno</title>
+  <title>Locale Deposito per Moto - Valdagno</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
     @page {
       size: A4;
@@ -12,7 +14,7 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       color: #222;
       margin: 0;
       padding: 0;
@@ -24,28 +26,45 @@
     .poster {
       width: 210mm;
       height: 297mm;
-      padding: 15mm;
+      padding: 10mm;
       box-sizing: border-box;
       position: relative;
     }
 
     .header {
       text-align: center;
-      padding: 10mm 0;
-      margin-bottom: 5mm;
+      padding: 5mm 0;
+      margin-bottom: 3mm;
+      background: linear-gradient(135deg, #0066ff 0%, #00a2ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+      opacity: 0.5;
     }
 
     h1 {
-      font-size: 24pt;
-      margin-bottom: 5mm;
+      font-size: 32pt;
+      margin-bottom: 3mm;
       font-weight: 700;
-      color: #222;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .subheading {
-      font-size: 14pt;
-      color: #666;
-      margin-bottom: 5mm;
+      font-size: 16pt;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3mm;
+      font-weight: 500;
     }
 
     .location {
@@ -53,46 +72,138 @@
       align-items: center;
       gap: 3mm;
       padding: 3mm 6mm;
-      border: 0.5mm solid #ddd;
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 2mm;
-      font-size: 12pt;
+      font-size: 16pt;
+      font-weight: 500;
+      color: white;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .location i {
+      font-size: 16pt;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3mm;
-      margin: 5mm 0;
+      gap: 2mm;
+      margin: 3mm 0;
     }
 
     .gallery img {
       width: 100%;
-      height: 45mm;
+      height: 50mm;
       object-fit: cover;
-      border: 0.5mm solid #ddd;
     }
 
-    .content-section {
-      margin: 5mm 0;
-      padding: 5mm 0;
-    }
-
-    .content-grid {
+    .main-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin: 5mm 0;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
       gap: 5mm;
     }
 
-    .content-column {
-      padding: 4mm;
+    .right-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-content {
+      padding: 5mm;
+      background: white;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .featured-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #0066ff, #00a2ff);
+    }
+
+    .featured-content h3 {
+      margin: 0 0 3mm 0;
+      color: #0066ff;
+      font-size: 20pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .featured-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .featured-list li {
+      margin-bottom: 3mm;
+    }
+
+    .featured-list .label {
+      font-size: 10pt;
+      color: #00a2ff;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .featured-list .value {
+      font-size: 12pt;
+      color: #333;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: white;
+    }
+
+    .featured-image:hover {
+      transform: scale(1.02);
+    }
+
+    .content-section {
+      padding: 5mm;
+      background: white;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .content-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #0066ff, #00a2ff);
     }
 
     .content-column h3 {
-      color: #222;
-      font-size: 14pt;
+      color: #0066ff;
+      font-size: 20pt;
+      font-weight: 700;
       margin-bottom: 3mm;
-      padding-bottom: 2mm;
-      border-bottom: 0.5mm solid #ddd;
       display: flex;
       align-items: center;
       gap: 2mm;
@@ -106,46 +217,34 @@
 
     .content-column li {
       margin-bottom: 3mm;
-      padding-bottom: 2mm;
-      border-bottom: 0.5mm solid #eee;
     }
 
-    .content-column li:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .label {
+    .content-column .label {
       font-size: 10pt;
-      color: #666;
+      color: #00a2ff;
       text-transform: uppercase;
       margin-bottom: 1mm;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    .value {
+    .content-column .value {
       font-size: 12pt;
-      color: #222;
+      color: #333;
       font-weight: 500;
     }
 
-    .price-section {
-      text-align: center;
-      margin: 5mm 0;
-      padding: 5mm 0;
-    }
-
     .price-tag {
-      font-size: 24pt;
-      color: #2196F3;
+      font-size: 28pt;
+      color: #0066ff;
       font-weight: 700;
-      margin-bottom: 2mm;
+      margin-bottom: 1mm;
     }
 
     .price-note {
-      font-size: 11pt;
-      color: #666;
-      font-style: italic;
+      font-size: 14pt;
+      color: #00a2ff;
+      font-weight: 500;
     }
 
     .buttons {
@@ -166,11 +265,33 @@
       color: white;
       border-radius: 2mm;
       font-weight: 600;
-      font-size: 11pt;
+      font-size: 16pt;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+      z-index: 1;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
     .whatsapp {
-      background-color: #25D366;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    }
+
+    .email {
+      background: linear-gradient(135deg, #0066ff 0%, #00a2ff 100%);
     }
 
     .urls {
@@ -188,118 +309,135 @@
     .qr-section img {
       width: 40mm;
       height: 40mm;
-      border: 0.5mm solid #ddd;
       padding: 2mm;
     }
 
     .qr-note {
-      font-size: 10pt;
-      color: #666;
+      font-size: 16pt;
+      color: #00a2ff;
       margin-top: 3mm;
+      font-weight: 500;
     }
 
-    .language-flag {
-      display: inline-block;
-      width: 1.2em;
-      height: 0.8em;
-      margin: 0 0.3em;
-      vertical-align: middle;
-      border-radius: 2px;
-      overflow: hidden;
+    .section-title {
+      font-size: 20pt;
+      color: #0066ff;
+      font-weight: 700;
+      margin-bottom: 3mm;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
     }
 
-    .language-flag.en {
-      background: linear-gradient(to right, #B31942 0%, #B31942 40%, #fff 40%, #fff 60%, #B31942 60%, #B31942 100%);
+    .info-section {
+      margin-bottom: 4mm;
     }
 
-    .language-flag.it {
-      background: linear-gradient(to right, #009246 0%, #009246 33%, #fff 33%, #fff 66%, #CE2B37 66%, #CE2B37 100%);
+    .info-section .label {
+      font-size: 14pt;
+      color: #00a2ff;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    .language-flag i {
-      display: none;
+    .info-section .value {
+      font-size: 16pt;
+      color: #333;
+      line-height: 1.4;
+      font-weight: 500;
     }
 
     @media print {
       body {
         background: white;
       }
+
       .poster {
         box-shadow: none;
       }
+
       .button {
         border: 0.5mm solid currentColor;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="poster">
     <div class="header">
-      <h1>Storage Space for Sale</h1>
-      <div class="subheading">Locale Deposito in Vendita</div>
+      <h1>Locale Deposito per Moto</h1>
+      <div class="subheading">Soluzione Sicura per il Tuo Veicolo</div>
       <div class="location">
-        <span>📍</span>
-        Piazza Dante Alighieri, Valdagno (VI)
+        <i class="fas fa-map-marker-alt"></i>
+        Piazza Dante Alighieri 11, Valdagno (VI)
       </div>
     </div>
 
     <div class="gallery">
-      <img src="media/storage/storage-1.jpg" alt="Storage Space">
-      <img src="media/storage/storage-2.jpg" alt="Storage Space">
-      <img src="media/storage/storage-3.jpg" alt="Storage Space">
+      <img src="media/storage/storage-1.jpg" alt="Locale Deposito">
+      <img src="media/storage/storage-2.jpg" alt="Locale Deposito">
+      <img src="media/storage/storage-3.jpg" alt="Locale Deposito">
     </div>
 
-    <div class="price-section">
-      <div class="price-tag">€6,000</div>
-      <div class="price-note">
-        Price negotiable / Prezzo trattabile<br>
-        Additional costs may apply / Costi aggiuntivi potrebbero essere applicati
+    <div class="main-grid">
+      <div class="left-column">
+        <div class="featured-content">
+          <h3 class="section-title"><i class="fas fa-motorcycle"></i> Garage MOTO / Scantinato</h3>
+          <div class="info-section">
+            <div class="label">Vantaggi</div>
+            <div class="value">Protezione dalle intemperie • Sicurezza garantita • Accesso 24/7 • Manutenzione facile
+            </div>
+          </div>
+          <div class="info-section">
+            <div class="label">Caratteristiche</div>
+            <div class="value">Porta basculante • Illuminazione interna • Accesso comodo • Spazio dedicato</div>
+          </div>
+          <div class="info-section">
+            <div class="label">Ubicazione</div>
+            <div class="value">Piazza Dante Alighieri 11, Piano Seminterrato (ST-3)</div>
+          </div>
+          <div class="info-section">
+            <div class="label">Superficie</div>
+            <div class="value">13 m²</div>
+          </div>
+          <div class="info-section">
+            <h3 class="section-title"><i class="fas fa-euro-sign"></i> Prezzo</h3>
+            <div class="price-tag">€6.000</div>
+            <div class="price-note">Prezzo trattabile</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="content-section">
-      <div class="content-grid">
-        <div class="content-column">
-          <h3><span class="language-flag fi fi-us"></span>English</h3>
-          <ul>
-            <li>
-              <div class="label">Location</div>
-              <div class="value">Piazza Dante Alighieri, Floor ST-3</div>
-            </li>
-            <li>
-              <div class="label">Size</div>
-              <div class="value">13 m²</div>
-            </li>
-          </ul>
-        </div>
-        <div class="content-column">
-          <h3><span class="language-flag fi fi-it"></span>Italiano</h3>
-          <ul>
-            <li>
-              <div class="label">Ubicazione</div>
-              <div class="value">Piazza Dante Alighieri, Piano ST-3</div>
-            </li>
-            <li>
-              <div class="label">Superficie</div>
-              <div class="value">13 m²</div>
-            </li>
-          </ul>
-        </div>
+      <div class="right-column">
+        <img src="media/storage/storage-4.jpg" alt="Locale Deposito" class="featured-image">
       </div>
     </div>
 
     <div class="buttons">
       <div>
-        <a href="https://wa.me/393474943221" class="button whatsapp" target="_blank">Contact via WhatsApp</a>
+        <a href="https://wa.me/393474943221" class="button whatsapp" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          Contatta via WhatsApp
+        </a>
         <div class="urls">+39 347 494 3221</div>
+      </div>
+      <div>
+        <a href="mailto:powerhydratoni@gmail.com" class="button email" target="_blank">
+          <i class="fas fa-envelope"></i>
+          Invia Email
+        </a>
+        <div class="urls">powerhydratoni@gmail.com</div>
       </div>
     </div>
 
     <div class="qr-section">
       <img src="media/qr.jpeg" alt="QR Code">
-      <div class="qr-note">Scan for more details / Scansiona per maggiori dettagli</div>
+      <div class="qr-note">Scansiona per maggiori dettagli</div>
     </div>
   </div>
 </body>
+
 </html>

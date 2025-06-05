@@ -6,7 +6,7 @@ const path = require('path');
   const page = await browser.newPage();
   
   // Load the HTML file
-  await page.goto(`file:${path.join(__dirname, 'maid-poster.html')}`, {
+  await page.goto(`file:${path.join(__dirname, 'storage-poster.html')}`, {
     waitUntil: 'networkidle0'
   });
 
@@ -18,94 +18,82 @@ const path = require('path');
         padding: 0 !important;
       }
       body {
-        padding: 8mm !important;
+        padding: 10mm !important;
       }
       .poster {
         height: auto !important;
         min-height: 0 !important;
       }
       .header {
-        padding: 3mm 0 !important;
-        margin-bottom: 2mm !important;
+        padding: 5mm 0 !important;
+        margin-bottom: 3mm !important;
       }
       h1 {
-        font-size: 18pt !important;
+        font-size: 20pt !important;
         margin-bottom: 2mm !important;
       }
       .subheading {
-        font-size: 11pt !important;
+        font-size: 12pt !important;
         margin-bottom: 2mm !important;
       }
       .location {
         padding: 2mm 4mm !important;
+        font-size: 12pt !important;
       }
       .gallery {
         margin: 2mm 0 !important;
-        gap: 1.5mm !important;
+        gap: 2mm !important;
       }
       .gallery img {
-        height: 35mm !important;
+        height: 40mm !important;
       }
-      .price-section {
-        margin: 2mm 0 !important;
-        padding: 3mm !important;
+      .main-grid {
+        gap: 3mm !important;
+        margin: 3mm 0 !important;
+      }
+      .section-title {
+        font-size: 20pt !important;
+        margin-bottom: 3mm !important;
+      }
+      .info-section {
+        margin-bottom: 4mm !important;
+      }
+      .info-section .label {
+        font-size: 14pt !important;
+        margin-bottom: 1mm !important;
+      }
+      .info-section .value {
+        font-size: 16pt !important;
+        line-height: 1.4 !important;
       }
       .price-tag {
-        font-size: 20pt !important;
+        font-size: 28pt !important;
         margin-bottom: 1mm !important;
       }
       .price-note {
-        font-size: 9pt !important;
-        line-height: 1.3 !important;
+        font-size: 14pt !important;
       }
-      .content-section {
-        margin: 2mm 0 !important;
-        padding: 2mm !important;
-      }
-      .content-grid {
-        gap: 2mm !important;
-      }
-      .content-column {
-        padding: 2mm !important;
-      }
-      .content-column h3 {
-        font-size: 11pt !important;
-        margin-bottom: 1.5mm !important;
-        padding-bottom: 1mm !important;
-      }
-      .content-column li {
-        margin-bottom: 1.5mm !important;
-        padding-bottom: 0.5mm !important;
-      }
-      .label {
-        font-size: 8pt !important;
-        margin-bottom: 0.5mm !important;
-      }
-      .value {
-        font-size: 9pt !important;
+      .featured-image {
+        height: 100% !important;
       }
       .buttons {
-        margin: 2mm 0 !important;
-        gap: 2mm !important;
+        margin: 3mm 0 !important;
+        gap: 3mm !important;
       }
       .button {
-        padding: 2mm 3mm !important;
-        font-size: 10pt !important;
-      }
-      .urls {
-        font-size: 8pt !important;
-        margin-top: 1mm !important;
+        padding: 2mm 4mm !important;
+        font-size: 12pt !important;
       }
       .qr-section {
-        margin: 2mm 0 !important;
+        margin: 3mm 0 !important;
       }
       .qr-section img {
-        width: 25mm !important;
-        height: 25mm !important;
+        width: 30mm !important;
+        height: 30mm !important;
         padding: 1mm !important;
       }
       .qr-note {
-        font-size: 8pt !important;
+        font-size: 12pt !important;
         margin-top: 1mm !important;
       }
     `
@@ -113,7 +101,7 @@ const path = require('path');
 
   // Generate PDF
   await page.pdf({
-    path: 'maid-poster.pdf',
+    path: 'storage-poster.pdf',
     format: 'A4',
     printBackground: true,
     margin: {
