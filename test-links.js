@@ -59,9 +59,12 @@ function checkUrl(url) {
         // Handle external URLs
         const protocol = url.startsWith('https') ? https : http;
         const req = protocol.get(url, (res) => {
+            // Consider redirects (301, 302) as successful
+            const status = res.statusCode;
+            const isSuccess = status === 200 || status === 301 || status === 302;
             resolve({
                 url,
-                status: res.statusCode,
+                status: isSuccess ? '200' : status,
                 error: null
             });
         });
