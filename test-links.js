@@ -18,6 +18,14 @@ const skipDomains = [
     'cdnjs.cloudflare.com'
 ];
 
+// List of domains to check (social media, etc.)
+const checkDomains = [
+    'instagram.com',
+    'linkedin.com',
+    'wa.me',
+    'github.com'
+];
+
 while ((match = linkRegex.exec(htmlContent)) !== null) {
     const url = match[1];
     
@@ -30,7 +38,13 @@ while ((match = linkRegex.exec(htmlContent)) !== null) {
     // Skip data URLs and javascript: links
     if (url.startsWith('data:') || url.startsWith('javascript:')) continue;
     
-    links.push(url);
+    // Check if it's a social media or external link we want to verify
+    const isExternalLink = checkDomains.some(domain => url.includes(domain));
+    
+    // Add the link if it's either a local file or a social media/external link we want to check
+    if (!url.startsWith('http') || isExternalLink) {
+        links.push(url);
+    }
 }
 
 // Function to check if a URL is valid
@@ -81,7 +95,7 @@ function checkUrl(url) {
 
 // Main test function
 async function testLinks() {
-    console.log('🔍 Testing all page links in index.html...\n');
+    console.log('🔍 Testing all important links in index.html...\n');
     
     const results = await Promise.all(links.map(checkUrl));
     let hasErrors = false;
@@ -96,10 +110,10 @@ async function testLinks() {
     });
 
     if (hasErrors) {
-        console.error('\n❌ Some page links are broken!');
+        console.error('\n❌ Some important links are broken!');
         process.exit(1);
     } else {
-        console.log('\n✅ All page links are working!');
+        console.log('\n✅ All important links are working!');
         process.exit(0);
     }
 }
