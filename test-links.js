@@ -12,14 +12,27 @@ const links = [];
 let match;
 
 while ((match = linkRegex.exec(htmlContent)) !== null) {
-    links.push(match[1]);
+    // Skip anchor links (those starting with #)
+    if (!match[1].startsWith('#')) {
+        links.push(match[1]);
+    }
 }
 
 // Function to check if a URL is valid
 function checkUrl(url) {
     return new Promise((resolve) => {
+        // Skip data URLs and javascript: links
+        if (url.startsWith('data:') || url.startsWith('javascript:')) {
+            resolve({
+                url,
+                status: 'SKIPPED',
+                error: 'Data or JavaScript URL'
+            });
+            return;
+        }
+
         // Handle relative URLs
-        if (url.startsWith('./') || url.startsWith('/')) {
+        if (url.startsWith('./') || url.startsWith('/') || !url.startsWith('http')) {
             const filePath = path.join(process.cwd(), url);
             fs.access(filePath, fs.constants.F_OK, (err) => {
                 resolve({
@@ -69,8 +82,8 @@ async function testLinks() {
     let hasErrors = false;
 
     results.forEach(({ url, status, error }) => {
-        if (status === '200') {
-            console.log(`✅ ${url} - OK`);
+        if (status === '200' || status === 'SKIPPED') {
+            console.log(`✅ ${url} - ${status === 'SKIPPED' ? 'SKIPPED' : 'OK'}`);
         } else {
             hasErrors = true;
             console.error(`❌ ${url} - ${status}${error ? ` (${error})` : ''}`);
