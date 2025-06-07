@@ -7,9 +7,26 @@ const http = require('http');
 const htmlContent = fs.readFileSync('index.html', 'utf8');
 
 // Extract all links from the HTML
-const linkRegex = /href=["']([^"']+)["']/g;
-const links = [];
+const links = new Set(); // Using Set to avoid duplicates
+
+// Extract href attributes
+const hrefRegex = /href=["']([^"']+)["']/g;
 let match;
+while ((match = hrefRegex.exec(htmlContent)) !== null) {
+    const url = match[1];
+    if (!url.startsWith('#') && !url.startsWith('data:') && !url.startsWith('javascript:')) {
+        links.add(url);
+    }
+}
+
+// Extract data-url attributes
+const dataUrlRegex = /data-url=["']([^"']+)["']/g;
+while ((match = dataUrlRegex.exec(htmlContent)) !== null) {
+    const url = match[1];
+    if (!url.startsWith('#') && !url.startsWith('data:') && !url.startsWith('javascript:')) {
+        links.add(url);
+    }
+}
 
 // List of domains to skip (CDNs, fonts, etc.)
 const skipDomains = [
@@ -18,34 +35,10 @@ const skipDomains = [
     'cdnjs.cloudflare.com'
 ];
 
-// List of domains to check (social media, etc.)
-const checkDomains = [
-    'instagram.com',
-    'linkedin.com',
-    'wa.me',
-    'github.com'
-];
-
-while ((match = linkRegex.exec(htmlContent)) !== null) {
-    const url = match[1];
-    
-    // Skip anchor links
-    if (url.startsWith('#')) continue;
-    
-    // Skip CDN and font resources
-    if (skipDomains.some(domain => url.includes(domain))) continue;
-    
-    // Skip data URLs and javascript: links
-    if (url.startsWith('data:') || url.startsWith('javascript:')) continue;
-    
-    // Check if it's a social media or external link we want to verify
-    const isExternalLink = checkDomains.some(domain => url.includes(domain));
-    
-    // Add the link if it's either a local file or a social media/external link we want to check
-    if (!url.startsWith('http') || isExternalLink) {
-        links.push(url);
-    }
-}
+// Filter out CDN resources
+const filteredLinks = Array.from(links).filter(url => 
+    !skipDomains.some(domain => url.includes(domain))
+);
 
 // Function to check if a URL is valid
 function checkUrl(url) {
@@ -97,7 +90,7 @@ function checkUrl(url) {
 async function testLinks() {
     console.log('🔍 Testing all important links in index.html...\n');
     
-    const results = await Promise.all(links.map(checkUrl));
+    const results = await Promise.all(filteredLinks.map(checkUrl));
     let hasErrors = false;
 
     results.forEach(({ url, status, error }) => {
