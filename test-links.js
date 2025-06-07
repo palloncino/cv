@@ -11,26 +11,31 @@ const linkRegex = /href=["']([^"']+)["']/g;
 const links = [];
 let match;
 
+// List of domains to skip (CDNs, fonts, etc.)
+const skipDomains = [
+    'fonts.googleapis.com',
+    'fonts.gstatic.com',
+    'cdnjs.cloudflare.com'
+];
+
 while ((match = linkRegex.exec(htmlContent)) !== null) {
-    // Skip anchor links (those starting with #)
-    if (!match[1].startsWith('#')) {
-        links.push(match[1]);
-    }
+    const url = match[1];
+    
+    // Skip anchor links
+    if (url.startsWith('#')) continue;
+    
+    // Skip CDN and font resources
+    if (skipDomains.some(domain => url.includes(domain))) continue;
+    
+    // Skip data URLs and javascript: links
+    if (url.startsWith('data:') || url.startsWith('javascript:')) continue;
+    
+    links.push(url);
 }
 
 // Function to check if a URL is valid
 function checkUrl(url) {
     return new Promise((resolve) => {
-        // Skip data URLs and javascript: links
-        if (url.startsWith('data:') || url.startsWith('javascript:')) {
-            resolve({
-                url,
-                status: 'SKIPPED',
-                error: 'Data or JavaScript URL'
-            });
-            return;
-        }
-
         // Handle relative URLs
         if (url.startsWith('./') || url.startsWith('/') || !url.startsWith('http')) {
             const filePath = path.join(process.cwd(), url);
@@ -76,14 +81,14 @@ function checkUrl(url) {
 
 // Main test function
 async function testLinks() {
-    console.log('🔍 Testing all links in index.html...\n');
+    console.log('🔍 Testing all page links in index.html...\n');
     
     const results = await Promise.all(links.map(checkUrl));
     let hasErrors = false;
 
     results.forEach(({ url, status, error }) => {
-        if (status === '200' || status === 'SKIPPED') {
-            console.log(`✅ ${url} - ${status === 'SKIPPED' ? 'SKIPPED' : 'OK'}`);
+        if (status === '200') {
+            console.log(`✅ ${url} - OK`);
         } else {
             hasErrors = true;
             console.error(`❌ ${url} - ${status}${error ? ` (${error})` : ''}`);
@@ -91,10 +96,10 @@ async function testLinks() {
     });
 
     if (hasErrors) {
-        console.error('\n❌ Some links are broken!');
+        console.error('\n❌ Some page links are broken!');
         process.exit(1);
     } else {
-        console.log('\n✅ All links are working!');
+        console.log('\n✅ All page links are working!');
         process.exit(0);
     }
 }
